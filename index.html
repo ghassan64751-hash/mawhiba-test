@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="نماذج تدريبية على نمط مقياس موهبة للقدرات العقلية للصف السادس — مدرسة التويثير الابتدائية">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232e4fa8'/%3E%3Cpath d='M9 4.5a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0-1.7 4.2 2.5 2.5 0 0 0 1.7 4.3 2.5 2.5 0 0 0 5 .8V6.5A2 2 0 0 0 9 4.5zM15 4.5a2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1 1.7 4.2 2.5 2.5 0 0 1-1.7 4.3 2.5 2.5 0 0 1-5 .8' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<title>اختبار القدرات العقلية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Tajawal:wght@400;500;700;800&display=swap">
+<style>
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+
+/* Layout: one centered column; slim header, then one screen at a time (start → quiz → result) */
+:root{
+  --bg:#f3f5fa; --surface:#ffffff; --ink:#18233d; --muted:#5d6886; --line:#dde2ee;
+  --accent:#2e4fa8; --accent-soft:#e6ecfb; --gold:#c98a12; --gold-soft:#fbf1dc;
+  --ok:#1d8a55; --ok-soft:#e2f4ea; --bad:#c43c3c; --bad-soft:#fbe7e7;
+  --fig-g:#b9c0d0; --paper:#fbf6e8; --water:#cfe3f7; --cube-t:#f3f5fa; --cube-l:#c3cbe0; --cube-r:#8f9bbb; --gear:#d4d9e6;
+  --display:"El Messiri","Tajawal",system-ui,sans-serif;
+  --body:"Tajawal",system-ui,"Segoe UI",Tahoma,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1524; --surface:#18203a; --ink:#e8ecf7; --muted:#9aa5c4; --line:#2a3455;
+  --accent:#8aa6ff; --accent-soft:#233063; --gold:#f0b545; --gold-soft:#3a2f17;
+  --ok:#4fcb8a; --ok-soft:#163a2a; --bad:#ff7a7a; --bad-soft:#432023;
+  --fig-g:#5b6687; --paper:#2b3352; --water:#1f3f63; --cube-t:#6274ab; --cube-l:#43517f; --cube-r:#2e3a62; --gear:#39446a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1524; --surface:#18203a; --ink:#e8ecf7; --muted:#9aa5c4; --line:#2a3455;
+  --accent:#8aa6ff; --accent-soft:#233063; --gold:#f0b545; --gold-soft:#3a2f17;
+  --ok:#4fcb8a; --ok-soft:#163a2a; --bad:#ff7a7a; --bad-soft:#432023;
+  --fig-g:#5b6687; --paper:#2b3352; --water:#1f3f63; --cube-t:#6274ab; --cube-l:#43517f; --cube-r:#2e3a62; --gear:#39446a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.75;direction:rtl;padding-inline:16px;padding-block:0 40px}
+.wrap{max-width:860px;margin:0 auto}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:18px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{width:44px;height:44px;border-radius:12px;background:var(--accent);display:grid;place-items:center;flex:none}
+.mark svg{width:26px;height:26px}
+.brand h1{font-family:var(--display);font-size:1.35rem;margin:0;line-height:1.3;text-wrap:balance}
+.brand small{display:block;color:var(--muted);font-size:.85rem}
+.chip{font-size:.85rem;padding:4px 12px;border-radius:999px;background:var(--gold-soft);color:var(--gold);font-weight:700}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+h2{font-family:var(--display);font-size:1.6rem;margin:0 0 8px;text-wrap:balance}
+.lead{color:var(--muted);margin:0 0 20px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:0 0 22px;padding:0;list-style:none}
+.facts li{background:var(--bg);border-radius:12px;padding:12px 14px}
+.facts b{display:block;font-size:1.4rem;font-family:var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.facts span{color:var(--muted);font-size:.9rem}
+.secs-list{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.secs-list li{font-size:.88rem;background:var(--accent-soft);color:var(--accent);padding:3px 12px;border-radius:999px;font-weight:700}
+.rules{margin:0 0 22px;padding-inline-start:20px}
+.rules li{margin-bottom:4px}
+.lbl{display:block;font-weight:700;margin-bottom:8px}
+input[type=text]{width:100%;font:inherit;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+input[type=text]:focus{outline:none;border-color:var(--accent)}
+.models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:18px}
+@media (max-width:560px){.models{grid-template-columns:1fr}}
+.model{font:inherit;text-align:start;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:12px 14px;cursor:pointer;display:grid;gap:2px}
+.model b{font-family:var(--display);font-size:1.1rem}
+.model span{color:var(--muted);font-size:.88rem}
+.model.sel{border-color:var(--accent);background:var(--accent-soft)}
+.model[disabled]{opacity:.5;cursor:default}
+.btn{font:inherit;font-weight:700;border:0;border-radius:12px;padding:12px 22px;cursor:pointer;background:var(--accent);color:var(--surface);transition:transform .12s ease,opacity .12s}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,.opt:focus-visible,.nav-dot:focus-visible,.model:focus-visible,.flt:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btn.ghost{background:transparent;color:var(--accent);border:1.5px solid var(--line)}
+.btn.gold{background:var(--gold);color:#1b1404}
+.btn[disabled]{opacity:.4;cursor:default;transform:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.err{color:var(--bad);font-size:.9rem;min-height:1.4em;margin:6px 0 0}
+.resume{border:1.5px dashed var(--accent);background:var(--accent-soft);border-radius:14px;padding:14px 16px;margin-bottom:18px}
+.resume p{margin:0 0 10px}
+/* quiz */
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;color:var(--muted);font-size:.95rem}
+.bar strong{color:var(--ink)}
+.timer{font-variant-numeric:tabular-nums;direction:ltr;font-weight:700;color:var(--ink)}
+.progress{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:20px}
+.progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.sec{display:inline-block;font-size:.85rem;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:3px 12px;border-radius:999px;margin-bottom:12px}
+.stem{color:var(--muted);margin:0 0 6px;font-size:.95rem}
+.q{font-size:1.25rem;font-weight:700;margin:0 0 18px;line-height:1.7}
+.q.big{font-size:1.55rem;font-family:var(--display);text-align:center;background:var(--bg);border-radius:14px;padding:14px;word-spacing:.15em}
+.passage{background:var(--gold-soft);border-radius:14px;padding:14px 18px;margin:0 0 16px;font-size:1rem;line-height:1.95}
+.passage b{color:var(--gold);display:block;margin-bottom:4px}
+.figbox{display:flex;justify-content:center;margin:4px 0 18px;max-width:100%;overflow-x:auto}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.opts.figs{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:560px){.opts{grid-template-columns:1fr}.opts.figs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.opt{font:inherit;text-align:start;display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;min-width:0;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--accent)}
+.opt .k{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--bg);font-weight:800;color:var(--muted)}
+.opt .ot{min-width:0}
+.opt.fig{flex-direction:column;align-items:stretch;gap:6px;padding:10px}
+.opt.fig .k{width:28px;height:28px;border-radius:8px}
+.opt.fig .ov{width:100%;max-width:96px;margin:0 auto}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.sel .k{background:var(--accent);color:var(--surface)}
+.qnav{display:flex;justify-content:space-between;gap:10px;margin-top:22px;flex-wrap:wrap}
+.grid-title{margin:26px 0 10px;font-weight:700;font-size:.95rem;color:var(--muted)}
+.navsecs{display:grid;gap:10px}
+.navsec .nl{display:block;font-size:.82rem;color:var(--muted);font-weight:700;margin-bottom:4px}
+.navgrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:5px}
+@media (max-width:560px){.navgrid{grid-template-columns:repeat(8,minmax(0,1fr))}}
+.nav-dot{font:inherit;font-size:.8rem;font-variant-numeric:tabular-nums;padding:5px 0;border-radius:8px;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.nav-dot.done{background:var(--accent-soft);color:var(--accent);border-color:transparent;font-weight:700}
+.nav-dot.cur{border-color:var(--gold);color:var(--ink);font-weight:800}
+.confirm{margin-top:18px;border:1.5px dashed var(--gold);border-radius:14px;padding:16px;background:var(--gold-soft)}
+.confirm p{margin:0 0 12px}
+/* figures */
+.fg{display:block;width:100%;height:auto;overflow:visible}
+.fg *{vector-effect:non-scaling-stroke;stroke-width:2px;stroke-linejoin:round;stroke-linecap:round}
+.fg .sd{fill:var(--ink);stroke:var(--ink)}
+.fg .mp{fill:var(--surface);stroke:var(--ink)}
+.fg .gy{fill:var(--fig-g);stroke:var(--ink)}
+.fg .ln{fill:none;stroke:var(--ink)}
+.fg .thk{stroke-width:3px}
+.fg .hand{stroke-width:5px}
+.fg .dsh{fill:none;stroke:var(--muted);stroke-dasharray:5 4}
+.fg .arw{fill:none;stroke:var(--accent);stroke-width:2.5px}
+.fg .arh{fill:var(--accent);stroke:none}
+.fg .pp{fill:var(--paper);stroke:var(--ink)}
+.fg .bs{fill:none;stroke:var(--muted);stroke-dasharray:3 3;stroke-width:1px}
+.fg .ct{fill:var(--cube-t);stroke:var(--ink);stroke-width:1.4px}
+.fg .cl{fill:var(--cube-l);stroke:var(--ink);stroke-width:1.4px}
+.fg .cr{fill:var(--cube-r);stroke:var(--ink);stroke-width:1.4px}
+.fg .gr{fill:var(--gear);stroke:var(--ink)}
+.fg .wt{fill:var(--water);stroke:none}
+.fg .qbx{fill:var(--gold-soft);stroke:var(--gold);stroke-dasharray:4 3}
+.fg text{fill:var(--ink);font-family:var(--body);font-weight:700;stroke:none}
+.fc{width:78px;aspect-ratio:1;max-width:100%;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);padding:3px;display:grid;place-items:center}
+.fc.qm{border-style:dashed;border-color:var(--gold);background:var(--gold-soft)}
+.fc.qm span{font-family:var(--display);font-size:1.8rem;color:var(--gold);font-weight:700}
+.fsteps .fc{width:100px}
+.fseq,.frow,.fsteps{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.fmat{display:grid;grid-template-columns:repeat(3,78px);gap:6px}
+.fana{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:center}
+.fana .pair{display:flex;align-items:center;gap:8px}
+.far{color:var(--accent);font-weight:800;font-size:1.3rem}
+.fg.fsm{width:150px}
+.fg.fmid{width:220px;max-width:100%}
+.fg.fwide{width:340px;max-width:100%}
+.fg.ic{width:34px;display:inline-block}
+.fcap{display:grid;justify-items:center;gap:2px;font-size:.85rem;color:var(--muted);font-weight:700}
+.feq{display:grid;gap:10px;direction:ltr}
+.eqr{display:flex;align-items:center;gap:8px;font-size:1.35rem;font-weight:800;font-family:var(--display)}
+.ftbl-wrap{max-width:100%;overflow-x:auto}
+.ftbl{border-collapse:collapse;font-variant-numeric:tabular-nums}
+.ftbl th,.ftbl td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.ftbl tr:first-child th{background:var(--accent-soft);color:var(--accent)}
+.ftbl td:first-child{font-weight:700;background:var(--bg)}
+/* result */
+.score{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+@media (max-width:560px){.score{grid-template-columns:1fr;text-align:center;justify-items:center}}
+.ring{width:170px;height:170px;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .num{position:absolute;inset:0;display:grid;place-items:center;text-align:center;line-height:1.1}
+.ring .num b{font-family:var(--display);font-size:2.6rem;display:block;font-variant-numeric:tabular-nums}
+.ring .num span{color:var(--muted);font-size:.9rem}
+.grade{font-family:var(--display);font-size:1.7rem;color:var(--gold);margin:0}
+.meta{color:var(--muted);margin:4px 0 0}
+.secs{margin-top:22px;display:grid;gap:10px}
+.secrow{display:grid;grid-template-columns:minmax(0,13rem) 1fr 3.5rem;gap:12px;align-items:center;font-size:.92rem}
+@media (max-width:560px){.secrow{grid-template-columns:minmax(0,8.5rem) 1fr 3rem}}
+.secrow .track{height:10px;background:var(--line);border-radius:99px;overflow:hidden}
+.secrow .track i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.secrow em{font-style:normal;font-variant-numeric:tabular-nums;text-align:left;direction:ltr;color:var(--muted)}
+.review h3{font-family:var(--display);font-size:1.35rem;margin:32px 0 6px}
+.rvtools{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:4px;margin-inline-end:6px;vertical-align:-1px}
+.legend .l1::before{background:var(--ok)} .legend .l2::before{background:var(--bad)}
+.flts{display:flex;gap:6px}
+.flt{font:inherit;font-size:.88rem;font-weight:700;padding:5px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.flt.on{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.rv{border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px;background:var(--surface);border-inline-start:5px solid var(--ok)}
+.rv.wrong{border-inline-start-color:var(--bad)}
+.rv.skip{border-inline-start-color:var(--muted)}
+.rv-h{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.88rem;color:var(--muted);margin-bottom:4px}
+.rv-h b{color:var(--ink)}
+.tag{font-weight:700;font-size:.82rem;padding:1px 10px;border-radius:99px}
+.tag.ok{background:var(--ok-soft);color:var(--ok)} .tag.bad{background:var(--bad-soft);color:var(--bad)} .tag.sk{background:var(--bg);color:var(--muted)}
+.rv-q{font-weight:700;margin:0 0 8px}
+.rv .figbox{margin:6px 0 10px;transform-origin:top center}
+.rv .fc{width:58px}.rv .fmat{grid-template-columns:repeat(3,58px)}
+.rv ul{list-style:none;margin:0 0 8px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.rv ul.figs{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:560px){.rv ul{grid-template-columns:1fr}.rv ul.figs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.rv li{padding:6px 10px;border-radius:10px;background:var(--bg);font-size:.95rem;border:2px solid transparent}
+.rv ul.figs li{display:grid;gap:4px;justify-items:center}
+.rv ul.figs li .fg{width:64px}
+.rv li.c{background:var(--ok-soft);color:var(--ok);font-weight:700;border-color:var(--ok)}
+.rv li.x{background:var(--bad-soft);color:var(--bad);border-color:var(--bad)}
+.rv ul:not(.figs) li.x{text-decoration:line-through}
+.rv .ex{font-size:.92rem;color:var(--muted);margin:0}
+.rv .ex b{color:var(--ink)}
+.credits{margin-top:30px;border-top:2px solid var(--gold);padding-top:18px;text-align:center;display:grid;gap:4px}
+.credits .school{font-family:var(--display);font-size:1.3rem;color:var(--accent)}
+.credits p{margin:0}
+.credits .role{color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-2z"/><path d="M15 3a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/></svg></div>
+      <div><h1>اختبار القدرات العقلية</h1><small>مدرسة التويثير الابتدائية · برنامج الموهوبين</small></div>
+    </div>
+    <span class="chip">الصف السادس · المستوى الثاني</span>
+  </header>
+
+  <section id="start" class="card">
+    <h2>نماذج تدريبية على نمط مقياس موهبة</h2>
+    <p class="lead">كل نموذج يغطي أنواع الأسئلة كلها بأسئلة مختلفة، ليتمرّن الطالب عليها دون تكرار.</p>
+    <ul class="facts">
+      <li><b>96</b><span>سؤالًا في كل نموذج</span></li>
+      <li><b>9</b><span>أقسام</span></li>
+      <li><b id="mCount">3</b><span>نماذج</span></li>
+    </ul>
+    <ul class="secs-list" id="secsList"></ul>
+    <ol class="rules">
+      <li>اقرأ كل سؤال بعناية، ثم اختر إجابة واحدة من أربع.</li>
+      <li>لن تعرف إن كانت إجابتك صحيحة أو خاطئة أثناء الاختبار.</li>
+      <li>تستطيع الرجوع لأي سؤال وتغيير إجابتك قبل الإنهاء، وتُحفظ إجاباتك تلقائيًا على هذا الجهاز.</li>
+      <li>عند الإنهاء تظهر درجتك وجميع الإجابات الصحيحة مع شرحها.</li>
+    </ol>
+    <div class="resume" id="resume" hidden>
+      <p id="resumeMsg"></p>
+      <div class="row"><button class="btn" id="resumeGo">متابعة الاختبار</button><button class="btn ghost" id="resumeDrop">بدء اختبار جديد</button></div>
+    </div>
+    <span class="lbl">اختر النموذج</span>
+    <div class="models" id="models"></div>
+    <label class="lbl" for="sname">اسم الطالب</label>
+    <input type="text" id="sname" placeholder="اكتب اسمك هنا" autocomplete="off">
+    <p class="err" id="nameErr"></p>
+    <div class="row" style="margin-top:8px"><button class="btn" id="go">ابدأ الاختبار</button></div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="bar">
+      <span><strong id="whoName"></strong> · <span id="whoModel"></span></span>
+      <span>السؤال <strong id="qNum">1</strong> من <span id="qTot">96</span></span>
+      <span>الوقت: <span class="timer" id="timer">00:00</span></span>
+    </div>
+    <div class="progress"><i id="prog"></i></div>
+    <div class="card">
+      <span class="sec" id="secName"></span>
+      <div id="passage" class="passage" hidden></div>
+      <p class="stem" id="stem"></p>
+      <div id="fig" class="figbox" hidden></div>
+      <p class="q" id="qText"></p>
+      <div class="opts" id="opts"></div>
+      <div class="qnav">
+        <button class="btn ghost" id="prev">→ السابق</button>
+        <button class="btn" id="next">التالي ←</button>
+      </div>
+    </div>
+    <p class="grid-title">الانتقال إلى سؤال (الأرقام الملوّنة تمت الإجابة عنها)</p>
+    <div class="navsecs" id="navsecs"></div>
+    <div class="row" style="margin-top:18px"><button class="btn gold" id="finish">إنهاء الاختبار وعرض الدرجة</button></div>
+    <div class="confirm" id="confirm" hidden>
+      <p id="confirmMsg"></p>
+      <div class="row"><button class="btn gold" id="yes">نعم، أنهِ الاختبار</button><button class="btn ghost" id="no">رجوع للأسئلة</button></div>
+    </div>
+  </section>
+
+  <section id="result" hidden>
+    <div class="card">
+      <div class="score">
+        <div class="ring">
+          <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="var(--line)" stroke-width="12"/><circle id="arc" cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7"/></svg>
+          <div class="num"><div><b id="sc">0</b><span id="scOf">من 96</span></div></div>
+        </div>
+        <div>
+          <p class="meta" id="rName"></p>
+          <p class="grade" id="grade"></p>
+          <p class="meta" id="rMeta"></p>
+        </div>
+      </div>
+      <div class="secs" id="secs"></div>
+      <div class="row" style="margin-top:22px"><button class="btn ghost" id="again">العودة إلى النماذج</button></div>
+    </div>
+    <div class="review">
+      <h3>الإجابات الصحيحة لجميع الأسئلة</h3>
+      <div class="rvtools">
+        <div class="legend"><span class="l1">الإجابة الصحيحة</span><span class="l2">إجابة الطالب الخاطئة</span></div>
+        <div class="flts"><button class="flt on" id="fAll">كل الأسئلة</button><button class="flt" id="fWrong">الأخطاء فقط</button></div>
+      </div>
+      <div id="rvList"></div>
+    </div>
+    <footer class="credits">
+      <p class="school">مدرسة التويثير الابتدائية</p>
+      <p><span class="role">إعداد وتصميم منسق الموهوبين:</span> <b>أ.حسن محمد الأحمد</b></p>
+      <p><span class="role">مدير المدرسة:</span> <b>مؤيد سعيد الياسين</b></p>
+    </footer>
+  </section>
+</div>
+
+<script>
+/* ================= مكتبة الرسوم ================= */
+const FG=(()=>{
+const rd=n=>Math.round(n*10)/10, RAD=Math.PI/180;
+const pt=(x,y)=>rd(x)+','+rd(y);
+const svg=(vb,inner,cls)=>`<svg class="fg${cls?' '+cls:''}" viewBox="${vb}" aria-hidden="true">${inner}</svg>`;
+const C=inner=>svg('0 0 100 100',inner);
+const CL={s:'sd',e:'mp',g:'gy'};
+function ring(n,cx,cy,r,st){const a=[];for(let i=0;i<n;i++){const t=(st+360*i/n)*RAD;a.push(pt(cx+r*Math.cos(t),cy+r*Math.sin(t)))}return a.join(' ')}
+const ctr=(t,cy,r)=>t==='triangle'?cy+r*.2:t==='pentagon'?cy+r*.06:cy;
+function shape(t,cx,cy,r,f,rot){
+  f=f||'e';const c=CL[f]||f;const tr=rot?` transform="rotate(${rot} ${rd(cx)} ${rd(cy)})"`:'';let p;
+  if(t==='circle')return `<circle class="${c}" cx="${rd(cx)}" cy="${rd(cy)}" r="${rd(r*.84)}"/>`;
+  if(t==='square')p=ring(4,cx,cy,r*1.08,-45);
+  else if(t==='diamond')p=ring(4,cx,cy,r*1.05,-90);
+  else if(t==='triangle')p=ring(3,cx,cy+r*.2,r*1.15,-90);
+  else if(t==='pentagon')p=ring(5,cx,cy+r*.06,r,-90);
+  else if(t==='hexagon')p=ring(6,cx,cy,r,-90);
+  else if(t==='star'){const a=[];for(let i=0;i<10;i++){const rr=i%2?r*.44:r*1.05,th=(-90+36*i)*RAD;a.push(pt(cx+rr*Math.cos(th),cy+rr*Math.sin(th)))}p=a.join(' ')}
+  else if(t==='arrow')p=[[0,-1],[.66,-.1],[.25,-.1],[.25,1],[-.25,1],[-.25,-.1],[-.66,-.1]].map(([x,y])=>pt(cx+x*r,cy+y*r)).join(' ');
+  else if(t==='cross'){const k=.34;p=[[-k,-1],[k,-1],[k,-k],[1,-k],[1,k],[k,k],[k,1],[-k,1],[-k,k],[-1,k],[-1,-k],[-k,-k]].map(([x,y])=>pt(cx+x*r*.92,cy+y*r*.92)).join(' ')}
+  else throw new Error('shape '+t);
+  return `<polygon class="${c}" points="${p}"${tr}/>`;
+}
+/* --- ترتيب مجموعات الأشكال --- */
+const POS={1:[[50,50]],2:[[30,50],[70,50]],3:[[50,29],[28,69],[72,69]],4:[[30,30],[70,30],[30,70],[70,70]],5:[[26,26],[74,26],[50,50],[26,74],[74,74]],6:[[22,33],[50,33],[78,33],[22,67],[50,67],[78,67]]};
+const GR={1:27,2:17,3:16,4:15,5:12,6:12};
+const group=(t,n,f)=>POS[n].map(([x,y])=>shape(t,x,y,GR[n],f)).join('');
+const one=(t,f,rot)=>shape(t,50,50,36,f,rot);
+const dot=(x,y,r,cls)=>`<circle class="${cls||'sd'}" cx="${rd(x)}" cy="${rd(y)}" r="${rd(r)}"/>`;
+function polyDots(t,n){const cy=ctr(t,50,40);let s=shape(t,50,50,40,'e');const ps=n===1?[[50,cy]]:Array.from({length:n},(_,i)=>{const a=(-90+360*i/n)*RAD;return[50+13*Math.cos(a),cy+13*Math.sin(a)]});return s+ps.map(([x,y])=>dot(x,y,4.5)).join('')}
+function nest(o,i,fi){return shape(o,50,50,40,'e')+shape(i,50,ctr(o,50,40),14,fi||'s')}
+function bw(nb,nw){const n=nb+nw;return POS[n].map(([x,y],k)=>dot(x,y,GR[n]*.62,k<nb?'sd':'mp')).join('')}
+function lines(set){let s='<rect class="mp" x="15" y="15" width="70" height="70"/>';const L={h:[15,50,85,50],v:[50,15,50,85],d1:[15,15,85,85],d2:[85,15,15,85]};for(const k of set){if(k==='c')continue;const[a,b,c,d]=L[k];s+=`<line class="ln thk" x1="${a}" y1="${b}" x2="${c}" y2="${d}"/>`}if(set.includes('c'))s+='<circle class="mp thk" cx="50" cy="50" r="11"/>';return s}
+function radCell(rot){const a=rot*RAD;return `<circle class="mp" cx="50" cy="50" r="38"/><line class="ln thk" x1="50" y1="50" x2="${rd(50+34*Math.sin(a))}" y2="${rd(50-34*Math.cos(a))}"/>`+dot(50,50,4)+dot(50+34*Math.sin(a),50-34*Math.cos(a),4.5)}
+const CORN=[[27,27],[73,27],[73,73],[27,73]];
+function cornerDot(p,center){return '<rect class="mp" x="15" y="15" width="70" height="70"/>'+dot(CORN[p][0],CORN[p][1],7)+shape(center,50,50,13,'e')}
+const QD=[[15,15],[50,15],[50,50],[15,50]];
+function quad(sh,d){let s=`<rect class="mp" x="15" y="15" width="70" height="70"/><rect class="sd" x="${QD[sh][0]}" y="${QD[sh][1]}" width="35" height="35"/><line class="ln" x1="50" y1="15" x2="50" y2="85"/><line class="ln" x1="15" y1="50" x2="85" y2="50"/>`;return s+dot(QD[d][0]+17.5,QD[d][1]+17.5,7,d===sh?'mp':'sd')}
+function cornerShape(outer,inner,p,rot){const O=[[33,33],[67,33],[67,67],[33,67]][p];return shape(outer,50,50,40,'e')+shape(inner,O[0],O[1],9,'s',rot)}
+function triDots(k){let s='';const sp=Math.min(17,72/k),r=Math.min(5.5,sp*.33),y0=50-(k-1)*sp/2;for(let row=0;row<k;row++){const y=y0+row*sp;for(let i=0;i<=row;i++)s+=dot(50+(i-row/2)*sp,y,r)}return s}
+function gridDots(rows,cols){let s='';const sp=Math.min(17,70/Math.max(rows,cols)),r=5;for(let i=0;i<rows;i++)for(let j=0;j<cols;j++)s+=dot(50+(j-(cols-1)/2)*sp,50+(i-(rows-1)/2)*sp,r);return s}
+function partial(n,k){const p=ring(n,50,50,38,-90).split(' ');if(k>=n)return `<polygon class="mp thk" points="${p.join(' ')}"/>`;return `<polyline class="ln thk" points="${p.slice(0,k+1).join(' ')}"/>`}
+/* --- تخطيطات HTML --- */
+const box=s=>`<div class="fc">${s}</div>`;
+const QM='<div class="fc qm"><span>؟</span></div>';
+const seq=cells=>`<div class="fseq">${cells.map(c=>box(C(c))).join('')}${QM}</div>`;
+const matrix=cells=>`<div class="fmat">${cells.map(c=>c===null?QM:box(C(c))).join('')}</div>`;
+const analogy=(a,b,c)=>`<div class="fana"><div class="pair">${box(C(a))}<span class="far">←</span>${box(C(b))}</div><div class="pair">${box(C(c))}<span class="far">←</span>${QM}</div></div>`;
+const row=cells=>`<div class="frow">${cells.map(c=>box(C(c))).join('')}</div>`;
+/* --- الأشكال المربّعة (للمرآة والتدوير) --- */
+const PENT={F:[[1,0],[2,0],[0,1],[1,1],[1,2]],L:[[0,0],[0,1],[0,2],[0,3],[1,3]],P:[[0,0],[1,0],[0,1],[1,1],[0,2]],N:[[1,0],[1,1],[0,2],[1,2],[0,3]],Y:[[1,0],[0,1],[1,1],[1,2],[1,3]]};
+function pnorm(c){const mx=Math.min(...c.map(v=>v[0])),my=Math.min(...c.map(v=>v[1]));return c.map(([x,y])=>[x-mx,y-my])}
+function ptf(sh,ops){let c=sh.c;for(const o of ops){c=c.map(([x,y])=>o==='r'?[-y,x]:o==='m'?[-x,y]:[x,-y]);c=pnorm(c)}return{c,m:sh.m}}
+function pkey(sh){return sh.c.map(v=>v.join(',')).sort().join(';')+'|'+sh.c[sh.m].join(',')}
+function pdraw(sh,ox0,oy0,size){ox0=ox0||0;oy0=oy0||0;size=size||100;const w=Math.max(...sh.c.map(v=>v[0]))+1,h=Math.max(...sh.c.map(v=>v[1]))+1;const s=Math.min((size-24)/w,(size-24)/h,20);const ox=ox0+(size-w*s)/2,oy=oy0+(size-h*s)/2;return sh.c.map(([x,y],i)=>`<rect class="${i===sh.m?'sd':'mp'}" x="${rd(ox+x*s)}" y="${rd(oy+y*s)}" width="${rd(s)}" height="${rd(s)}"/>`).join('')}
+const pent=(name,m)=>({c:pnorm(PENT[name]),m});
+/* --- طيّ الورق --- */
+const FD={
+  V:{h:[1,0,.5],r:([x,y])=>[1-x,y],tr:([x,y])=>[x+.5,y],w:([x,y])=>[x,1-y]},
+  H:{h:[0,-1,-.5],r:([x,y])=>[x,1-y],tr:([x,y])=>[x,y-.5],w:([x,y])=>[1-x,y]},
+  D:{h:[1,-1,0],r:([x,y])=>[y,x],tr:([x,y])=>[1-y,1-x],w:([x,y])=>[1-x,1-y]}
+};
+function clip(poly,[a,b,c]){const out=[],f=p=>a*p[0]+b*p[1]-c;for(let i=0;i<poly.length;i++){const P=poly[i],Q=poly[(i+1)%poly.length],fp=f(P),fq=f(Q);if(fp<=1e-9)out.push(P);if((fp<-1e-9&&fq>1e-9)||(fp>1e-9&&fq<-1e-9)){const t=fp/(fp-fq);out.push([P[0]+t*(Q[0]-P[0]),P[1]+t*(Q[1]-P[1])])}}return out}
+const M=p=>[15+p[0]*70,15+p[1]*70];
+function arrowLine(x1,y1,x2,y2){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,nx=-uy,ny=ux;const bx=x2-ux*9,by=y2-uy*9;return `<line class="arw" x1="${rd(x1)}" y1="${rd(y1)}" x2="${rd(bx)}" y2="${rd(by)}"/><polygon class="arh" points="${pt(x2,y2)} ${pt(bx+nx*5,by+ny*5)} ${pt(bx-nx*5,by-ny*5)}"/>`}
+function paperStep(reg,next,holes){
+  let s=`<polygon class="pp" points="${reg.map(p=>pt(...M(p))).join(' ')}"/>`;
+  if(next){const xs=reg.map(p=>p[0]),ys=reg.map(p=>p[1]);const x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);
+    let l,a;
+    if(next==='V'){l=[[.5,y0],[.5,y1]];const ym=(y0+y1)/2;a=[[.82,ym],[.18,ym]]}
+    else if(next==='H'){l=[[x0,.5],[x1,.5]];const xm=(x0+x1)/2;a=[[xm,.18],[xm,.82]]}
+    else {l=[[0,0],[1,1]];a=[[.8,.2],[.36,.64]]}
+    const A=M(l[0]),B=M(l[1]);s+=`<line class="dsh" x1="${rd(A[0])}" y1="${rd(A[1])}" x2="${rd(B[0])}" y2="${rd(B[1])}"/>`;
+    const P=M(a[0]),Q=M(a[1]);s+=arrowLine(P[0],P[1],Q[0],Q[1]);}
+  if(holes)s+=holes.map(h=>{const p=M(h);return dot(p[0],p[1],4.5)}).join('');
+  return s;
+}
+function paper(folds,punch){
+  const steps=[];let reg=[[0,0],[1,0],[1,1],[0,1]];
+  for(const f of folds){steps.push(paperStep(reg,f));reg=clip(reg,FD[f].h)}
+  steps.push(paperStep(reg,null,punch));
+  const REF={V:([x,y])=>[1-x,y],H:([x,y])=>[x,1-y],D:([x,y])=>[y,x],A:([x,y])=>[1-y,1-x],P:([x,y])=>[1-x,1-y],TV:([x,y])=>[x+.5,y],TH:([x,y])=>[x,y-.5]};
+  const WRONG={V:['TV','H','P'],H:['TH','V','P'],D:['A','V','H','P']};
+  const unf=maps=>{let hs=punch.map(p=>[...p]);for(let k=maps.length-1;k>=0;k--){if(maps[k])hs=hs.concat(hs.map(REF[maps[k]]))}return hs};
+  const correct=unf(folds);
+  const cands=[];
+  for(let k=folds.length-1;k>=0;k--)for(const w of WRONG[folds[k]]){const mp=[...folds];mp[k]=w;cands.push(unf(mp))}
+  if(folds.length>1){cands.push(unf(folds.map((f,i)=>i===folds.length-1?f:null)));cands.push(unf(folds.map((f,i)=>i===0?f:null)))}
+  cands.push(punch.map(p=>[...p]));
+  const dist=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
+  const okSet=hs=>hs.every(p=>p[0]>.04&&p[0]<.96&&p[1]>.04&&p[1]<.96)&&hs.every((p,i)=>hs.every((q,j)=>i===j||dist(p,q)>=.2));
+  const differ=(A,B)=>A.length!==B.length||A.some(p=>B.every(q=>dist(p,q)>.12))||B.some(p=>A.every(q=>dist(p,q)>.12));
+  const dis=[];
+  for(const c of cands){if(okSet(c)&&differ(c,correct)&&dis.every(d=>differ(c,d)))dis.push(c);if(dis.length===3)break}
+  if(dis.length<3)throw new Error('paper distractors '+folds.join(''));
+  const sheet=hs=>C(`<rect class="pp" x="15" y="15" width="70" height="70"/>`+hs.map(h=>{const p=M(h);return dot(p[0],p[1],4.5)}).join(''));
+  const fig=`<div class="fsteps">${steps.map((s,i)=>box(C(s))+(i<steps.length-1?'<span class="far">←</span>':'')).join('')}</div>`;
+  return{fig,correct:sheet(correct),dis:dis.map(sheet),n:correct.length};
+}
+/* --- شبكات المكعب --- */
+function cubeFold(cells){
+  const idx=new Map(cells.map((c,i)=>[c.join(','),i])),st=new Array(cells.length).fill(null),neg=a=>a.map(x=>-x);
+  st[0]={n:[0,0,-1],u:[1,0,0],v:[0,1,0]};const q=[0];
+  const mv=[[1,0,s=>({n:s.u,u:neg(s.n),v:s.v})],[-1,0,s=>({n:neg(s.u),u:s.n,v:s.v})],[0,1,s=>({n:s.v,u:s.u,v:neg(s.n)})],[0,-1,s=>({n:neg(s.v),u:s.u,v:s.n})]];
+  while(q.length){const i=q.shift(),[x,y]=cells[i];for(const[dx,dy,f]of mv){const j=idx.get((x+dx)+','+(y+dy));if(j!==undefined&&st[j]===null){st[j]=f(st[i]);q.push(j)}}}
+  if(st.some(s=>s===null))return null;
+  return st.map(s=>s.n.map(v=>v+0).join(','));
+}
+const validNet=c=>{const k=cubeFold(c);return !!k&&new Set(k).size===6};
+function opposite(cells,i){const k=cubeFold(cells);const neg=k[i].split(',').map(v=>(-v)+0).join(',');return k.indexOf(neg)}
+function net(cells,labels){const w=Math.max(...cells.map(c=>c[0]))+1,h=Math.max(...cells.map(c=>c[1]))+1;const s=Math.min(84/w,84/h,24);const ox=(100-w*s)/2,oy=(100-h*s)/2;
+  return cells.map(([x,y],i)=>`<rect class="pp" x="${rd(ox+x*s)}" y="${rd(oy+y*s)}" width="${rd(s)}" height="${rd(s)}"/>`+(labels?`<text x="${rd(ox+x*s+s/2)}" y="${rd(oy+y*s+s/2)}" font-size="${rd(s*.5)}" text-anchor="middle" dominant-baseline="central">${labels[i]}</text>`:'')).join('')}
+/* --- المكعبات المتراصّة (منظور) --- */
+function iso(h,base){
+  const s=16,cw=s*.866,ch=s*.5,P=(x,y,z)=>[(x-y)*cw,(x+y)*ch-z*s];const all=[];let parts='';
+  const poly=(cls,ps)=>{ps.forEach(p=>all.push(p));return `<polygon class="${cls}" points="${ps.map(p=>pt(p[0],p[1])).join(' ')}"/>`};
+  if(base)for(let y=0;y<h.length;y++)for(let x=0;x<h[y].length;x++)parts+=poly('bs',[P(x,y,0),P(x+1,y,0),P(x+1,y+1,0),P(x,y+1,0)]);
+  const cubes=[];for(let y=0;y<h.length;y++)for(let x=0;x<h[y].length;x++)for(let z=0;z<h[y][x];z++)cubes.push([x,y,z]);
+  cubes.sort((a,b)=>(a[0]+a[1])-(b[0]+b[1])||a[2]-b[2]);
+  for(const[x,y,z]of cubes){
+    parts+=poly('cr',[P(x+1,y,z),P(x+1,y+1,z),P(x+1,y+1,z+1),P(x+1,y,z+1)]);
+    parts+=poly('cl',[P(x,y+1,z),P(x+1,y+1,z),P(x+1,y+1,z+1),P(x,y+1,z+1)]);
+    parts+=poly('ct',[P(x,y,z+1),P(x+1,y,z+1),P(x+1,y+1,z+1),P(x,y+1,z+1)]);
+  }
+  const xs=all.map(p=>p[0]),ys=all.map(p=>p[1]);const x0=Math.min(...xs)-4,y0=Math.min(...ys)-4,W=Math.max(...xs)-x0+4,H=Math.max(...ys)-y0+4;
+  return svg(`${rd(x0)} ${rd(y0)} ${rd(W)} ${rd(H)}`,parts,'fmid');
+}
+/* --- الساعة --- */
+function clock(hh,mm){
+  let s='<circle class="mp" cx="50" cy="50" r="44"/>';
+  for(let i=0;i<12;i++){const a=i*30*RAD,r1=i%3?37:31;s+=`<line class="ln${i%3?'':' thk'}" x1="${rd(50+r1*Math.sin(a))}" y1="${rd(50-r1*Math.cos(a))}" x2="${rd(50+41*Math.sin(a))}" y2="${rd(50-41*Math.cos(a))}"/>`}
+  const ha=((hh%12)+mm/60)*30*RAD,ma=mm*6*RAD;
+  s+=`<line class="ln hand" x1="50" y1="50" x2="${rd(50+21*Math.sin(ha))}" y2="${rd(50-21*Math.cos(ha))}"/><line class="ln thk" x1="50" y1="50" x2="${rd(50+33*Math.sin(ma))}" y2="${rd(50-33*Math.cos(ma))}"/>`+dot(50,50,3.5);
+  return svg('0 0 100 100',s,'fsm');
+}
+/* --- العدّ: مربعات/مثلثات/مستطيلات --- */
+function gridFig(r,c){const s=Math.min(84/c,84/r),ox=(100-c*s)/2,oy=(100-r*s)/2;let o=`<rect class="mp thk" x="${rd(ox)}" y="${rd(oy)}" width="${rd(c*s)}" height="${rd(r*s)}"/>`;for(let i=1;i<c;i++)o+=`<line class="ln thk" x1="${rd(ox+i*s)}" y1="${rd(oy)}" x2="${rd(ox+i*s)}" y2="${rd(oy+r*s)}"/>`;for(let i=1;i<r;i++)o+=`<line class="ln thk" x1="${rd(ox)}" y1="${rd(oy+i*s)}" x2="${rd(ox+c*s)}" y2="${rd(oy+i*s)}"/>`;return svg('0 0 100 100',o,'fsm')}
+function triFig(){return svg('0 0 100 100',`<polygon class="mp thk" points="50,10 8,90 92,90"/><line class="ln thk" x1="50" y1="10" x2="36" y2="90"/><line class="ln thk" x1="50" y1="10" x2="64" y2="90"/><line class="ln thk" x1="26.4" y1="55" x2="73.6" y2="55"/>`,'fsm')}
+/* --- التروس --- */
+function gear(cx,cy,R,n,rot,label){const st=360/n,ri=R-6,a=[];for(let i=0;i<n;i++){const b=rot+i*st;[[ri,b],[R,b+st*.2],[R,b+st*.48],[ri,b+st*.68]].forEach(([r,g])=>a.push(pt(cx+r*Math.cos(g*RAD),cy+r*Math.sin(g*RAD))))}
+  return `<polygon class="gr" points="${a.join(' ')}"/>`+dot(cx,cy,Math.max(7,R*.36),'mp')+(label!==undefined?`<text x="${rd(cx)}" y="${rd(cy)}" font-size="${rd(Math.max(9,R*.4))}" text-anchor="middle" dominant-baseline="central">${label}</text>`:'')}
+const gapRot=n=>180-.84*360/n, toothRot=n=>-.34*360/n;
+function arc(cx,cy,r,cw,a0,a1){a0=a0===undefined?-140:a0;a1=a1===undefined?-40:a1;const[s,e]=cw?[a0,a1]:[a1,a0];const P=g=>[cx+r*Math.cos(g*RAD),cy+r*Math.sin(g*RAD)];const S=P(s),E=P(e);const d=cw?1:-1,ea=e*RAD,tx=-Math.sin(ea)*d,ty=Math.cos(ea)*d,nx=-ty,ny=tx,tip=[E[0]+tx*8,E[1]+ty*8];
+  return `<path class="arw" d="M${pt(...S)} A${r} ${r} 0 0 ${cw?1:0} ${pt(...E)}"/><polygon class="arh" points="${pt(...tip)} ${pt(E[0]+nx*5,E[1]+ny*5)} ${pt(E[0]-nx*5,E[1]-ny*5)}"/>`}
+function gearChain(n,cw){const R=24,sp=44,W=(n-1)*sp+76;let s='';for(let i=0;i<n;i++){const cx=W-38-i*sp;s+=gear(cx,58,R,10,i%2?toothRot(10):gapRot(10),i+1)}s+=arc(W-38,58,R+8,cw);return svg(`0 0 ${W} 96`,s,'fwide')}
+function gearPair(nBig,nSmall,labelBig,labelSmall){const Rb=46,Rs=Math.max(18,Rb*nSmall/nBig+4),cb=150,cs=cb-(Rb+Rs-8),cy=62;
+  return svg('0 0 220 140',gear(cb,cy,Rb,nBig,gapRot(nBig))+gear(cs,cy,Rs,nSmall,toothRot(nSmall))+`<text x="${cb}" y="128" font-size="12" text-anchor="middle">${labelBig}</text><text x="${rd(cs)}" y="128" font-size="12" text-anchor="middle">${labelSmall}</text>`,'fwide')}
+function gearLoop(){const P=[[100,36],[76,78],[124,78]];let s='';P.forEach(([x,y],i)=>s+=gear(x,y,26,10,i*7,i+1));s+=arc(100,36,34,true,-150,-30);return svg('36 0 128 116',s,'fmid')}
+function gearIdler(){const cy=72;const g1=255,R1=24,R2=58,g2=g1-(R1+R2-7),g3=g2-(R2+R1-7);
+  let s=gear(g1,cy,R1,12,gapRot(12),1)+gear(g2,cy,R2,36,toothRot(36),2)+gear(g3,cy,R1,12,gapRot(12),3)+arc(g1,cy,R1+8,true);
+  s+=`<text x="${g1}" y="${cy+R1+20}" font-size="11" text-anchor="middle">12 سنًّا</text><text x="${rd(g2)}" y="${cy+R2+16}" font-size="11" text-anchor="middle">36 سنًّا</text><text x="${rd(g3)}" y="${cy+R1+20}" font-size="11" text-anchor="middle">12 سنًّا</text>`;
+  return svg('0 0 290 150',s,'fwide')}
+/* --- البكرات والسيور --- */
+function belts(types,cw){const r=20,sp=84,n=types.length+1,W=(n-1)*sp+80,cy=52;const X=i=>W-40-i*sp;let s='';
+  types.forEach((t,i)=>{const x1=X(i),x2=X(i+1);if(t==='o'){s+=`<line class="ln thk" x1="${x1}" y1="${cy-r}" x2="${x2}" y2="${cy-r}"/><line class="ln thk" x1="${x1}" y1="${cy+r}" x2="${x2}" y2="${cy+r}"/>`}
+    else{const P=(cx,g)=>[cx+r*Math.cos(g*RAD),cy+r*Math.sin(g*RAD)];const a=P(x1,240),b=P(x2,60),c=P(x1,120),d=P(x2,-60);s+=`<line class="ln thk" x1="${rd(a[0])}" y1="${rd(a[1])}" x2="${rd(b[0])}" y2="${rd(b[1])}"/><line class="ln thk" x1="${rd(c[0])}" y1="${rd(c[1])}" x2="${rd(d[0])}" y2="${rd(d[1])}"/>`}});
+  for(let i=0;i<n;i++){s+=dot(X(i),cy,r,'gy')+dot(X(i),cy,8,'mp')+`<text x="${X(i)}" y="${cy}" font-size="10" text-anchor="middle" dominant-baseline="central">${i+1}</text>`}
+  s+=arc(X(0),cy,r+9,cw);return svg(`0 0 ${W} 100`,s,'fwide')}
+/* --- الرافعة (اللوح المتوازن) --- */
+function lever(items){let s='<line class="ln" x1="10" y1="104" x2="290" y2="104"/><polygon class="sd" points="150,68 136,104 164,104"/><rect class="gy" x="22" y="60" width="256" height="8" rx="2"/>';
+  for(let k=1;k<=4;k++)for(const sg of[1,-1]){const x=150+sg*30*k;s+=`<line class="ln" x1="${x}" y1="68" x2="${x}" y2="74"/><text x="${x}" y="84" font-size="10" text-anchor="middle">${k}</text>`}
+  for(const it of items){const x=150+(it.side==='r'?1:-1)*30*it.d;s+=`<rect class="${it.q?'qbx':'mp'}" x="${x-14}" y="34" width="28" height="26" rx="3"/><text x="${x}" y="47" font-size="10.5" text-anchor="middle" dominant-baseline="central">${it.label}</text>`}
+  return svg('0 0 300 112',s,'fwide')}
+/* --- المنحدرات --- */
+function ramp(w){return svg('0 0 100 100',`<line class="ln" x1="2" y1="85" x2="98" y2="85"/><polygon class="gy" points="94,85 94,45 ${94-w},85"/><rect class="sd" x="${rd(94-w-13)}" y="72" width="12" height="12" rx="1"/>`)}
+/* --- الخزان والثقوب / الكثافة --- */
+function tankHoles(){let s='<rect class="wt" x="42" y="34" width="86" height="90"/><path class="ln thk" d="M40 14 V126 H130 V14"/><line class="ln" x1="42" y1="34" x2="128" y2="34"/>';
+  [[52,1],[82,2],[112,3]].forEach(([y,n])=>{s+=dot(130,y,3.5,'sd')+`<text x="146" y="${y}" font-size="12" text-anchor="middle" dominant-baseline="central">${n}</text>`});
+  return svg('0 0 170 136',s,'fmid')}
+function tankBalls(){let s='<rect class="wt" x="32" y="42" width="156" height="82"/><path class="ln thk" d="M30 14 V126 H190 V14"/><line class="ln" x1="32" y1="42" x2="188" y2="42"/>';
+  [[56,34,1],[94,47,2],[132,84,3],[168,112,4]].forEach(([x,y,n])=>{s+=dot(x,y,11,'gy')+`<text x="${x}" y="${y}" font-size="11" text-anchor="middle" dominant-baseline="central">${n}</text>`});
+  return svg('0 0 220 136',s,'fwide')}
+/* --- الميزان ذو الكفتين --- */
+function scale(L,Rr){let s='<rect class="gy" x="74" y="100" width="52" height="7" rx="2"/><line class="ln thk" x1="100" y1="28" x2="100" y2="100"/><line class="ln thk" x1="40" y1="28" x2="160" y2="28"/>'+dot(100,28,4);
+  for(const[cx,items]of[[40,L],[160,Rr]]){s+=`<line class="ln" x1="${cx}" y1="28" x2="${cx-22}" y2="72"/><line class="ln" x1="${cx}" y1="28" x2="${cx+22}" y2="72"/><path class="gy" d="M${cx-24} 72 Q${cx} 88 ${cx+24} 72 Z"/>`;
+    const k=items.length,sp=15;items.forEach((t,i)=>{s+=shape(t,cx+(i-(k-1)/2)*sp,63,7.5,'s')})}
+  return svg('0 0 200 112',s,'fmid')}
+const scales=pairs=>`<div class="frow">${pairs.map((p,i)=>`<div class="fcap">${scale(p[0],p[1])}<span>الميزان (${i+1})</span></div>`).join('')}</div>`;
+/* --- معادلات الرموز --- */
+const ic=t=>svg('0 0 40 40',shape(t,20,20,15,'g'),'ic');
+const eqs=rows=>`<div class="feq">${rows.map(r=>`<div class="eqr">${r.map(t=>/^(circle|square|triangle|star|diamond|hexagon)$/.test(t)?ic(t):`<span>${t}</span>`).join('')}</div>`).join('')}</div>`;
+const table=(head,rows)=>`<div class="ftbl-wrap"><table class="ftbl"><tr>${head.map(h=>`<th>${h}</th>`).join('')}</tr>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</table></div>`;
+return{rd,svg,C,shape,group,one,dot,polyDots,nest,bw,lines,radCell,cornerDot,quad,cornerShape,triDots,gridDots,partial,box,seq,matrix,analogy,row,pent,ptf,pkey,pdraw,paper,cubeFold,validNet,opposite,net,iso,clock,gridFig,triFig,gearChain,gearPair,gearLoop,gearIdler,belts,lever,ramp,tankHoles,tankBalls,scales,eqs,table};
+})();
+
+/* ================= أدوات بناء الأسئلة ================= */
+const SECTIONS=["التناظر اللفظي","إكمال الجمل والمفردات","الاستيعاب المقروء","المتتابعات العددية والحرفية","الاستدلال الرياضي","الاستدلال المنطقي","الإدراك المكاني","المرونة العقلية","الاستدلال العلمي والميكانيكي"];
+const PLAN=[12,10,10,10,12,8,12,12,10];
+const STEMS={0:"اختر الزوج الذي تشبه العلاقة بين كلمتيه العلاقة بين الكلمتين:",3:"ما العدد الذي يكمل المتتابعة؟"};
+const SEQ_T="الأشكال مرتّبة من اليمين إلى اليسار وفق قاعدة معيّنة.";
+const MAT_T="تسير الأشكال في الصفوف والأعمدة وفق قاعدة معيّنة (اقرأ كل صف من اليمين).";
+const ANA_T="الشكل الأول يرتبط بالشكل الثاني بعلاقة معيّنة؛ طبّق العلاقة نفسها على الشكل الثالث.";
+const fo=s=>({f:FG.C(s)});
+const ff=svgStr=>({f:svgStr});
+/* خيارات: الصحيح أولًا ثم المشتّتات، ويُخلط ترتيبها لاحقًا بشكل ثابت */
+function Q(s,q,o,e,x){return Object.assign({s,q,o,e},x||{})}
+function chiralQs(){}
+function rng(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function prepModel(m,mi){
+  m.qs=m.qs.map((q,i)=>({q,i})).sort((a,b)=>a.q.s-b.q.s||a.i-b.i).map(x=>x.q);
+  m.qs.forEach((q,i)=>{if(q.a===undefined){const r=rng(mi*7919+i*104729+17);const idx=[0,1,2,3];for(let k=3;k>0;k--){const j=Math.floor(r()*(k+1));[idx[k],idx[j]]=[idx[j],idx[k]]}q.o=idx.map(k=>q.o[k]);q.a=idx.indexOf(0)}});
+  return m;
+}
+/* قوالب جاهزة لأسئلة الأشكال */
+const T={
+  mirror(name,m,e){const sh=FG.pent(name,m);const fig=FG.svg('0 0 160 100',`<line class="dsh" x1="40" y1="6" x2="40" y2="94"/><text x="22" y="96" font-size="9" text-anchor="middle">مرآة</text>`+FG.pdraw(sh,52,0,100),'fmid');
+    const o=[FG.ptf(sh,'m'),FG.ptf(sh,'rr'),FG.ptf(sh,'r'),sh];chk(o);return Q(6,'ما صورة الشكل في المرآة؟',o.map(x=>fo(FG.pdraw(x))),e||'المرآة تعكس الشكل يمينًا ويسارًا: ما كان في جهة اليمين يصبح في جهة اليسار، دون أن يُقلب الشكل رأسًا على عقب.',{fig})},
+  water(name,m){const sh=FG.pent(name,m);const fig=FG.svg('0 0 100 130',FG.pdraw(sh,0,0,100)+`<line class="dsh" x1="6" y1="104" x2="94" y2="104"/><text x="50" y="122" font-size="9" text-anchor="middle">سطح الماء</text>`,'fsm');
+    const o=[FG.ptf(sh,'v'),FG.ptf(sh,'m'),FG.ptf(sh,'rr'),sh];chk(o);return Q(6,'ما صورة الشكل المنعكسة على سطح الماء؟',o.map(x=>fo(FG.pdraw(x))),'سطح الماء يعكس الشكل من أعلى إلى أسفل: الجزء العلوي يظهر في الأسفل، ويبقى اليمين يمينًا واليسار يسارًا.',{fig})},
+  rotate(name,m,ops,deg){const sh=FG.pent(name,m);const fig=FG.svg('0 0 100 100',FG.pdraw(sh),'fsm');
+    const o=[FG.ptf(sh,ops),FG.ptf(sh,'m'),FG.ptf(sh,'mr'),FG.ptf(sh,'mrr')];chk(o);
+    return Q(6,'أيّ الأشكال الآتية هو الشكل نفسه بعد تدويره؟',o.map(x=>fo(FG.pdraw(x))),`الشكل الصحيح هو الشكل الأصلي بعد تدويره ${deg}. أما الخيارات الأخرى فهي صورة الشكل في المرآة، ولا يمكن الحصول عليها بالتدوير مهما أدرناها.`,{fig})},
+  oddMirror(name,m){const sh=FG.pent(name,m);const o=[FG.ptf(sh,'mr'),FG.ptf(sh,'r'),FG.ptf(sh,'rr'),FG.ptf(sh,'rrr')];chk(o);
+    return Q(7,'أيّ الأشكال الآتية يختلف عن البقية؟',o.map(x=>fo(FG.pdraw(x))),'ثلاثة أشكال هي الشكل نفسه بعد تدويره بزوايا مختلفة، أما الشكل المختلف فهو صورة الشكل في المرآة (مقلوب)، ولا يمكن الحصول عليه بالتدوير.')},
+  paper(folds,punch){const p=FG.paper(folds,punch);const names={V:'طيّ النصف الأيمن على الأيسر',H:'طيّ النصف العلوي على السفلي',D:'الطيّ على القُطر'};
+    return Q(6,'طُويت ورقة مربعة كما في الخطوات (من اليمين)، ثم ثُقبت وهي مطويّة. كيف تبدو الورقة بعد فتحها؟',[ff(p.correct),...p.dis.map(ff)],`بعد ${folds.map(f=>names[f]).join(' ثم ')} صارت الورقة ${({2:'طبقتين',4:'أربع طبقات'})[p.n/punch.length]}، فكل ثقب يخترق جميع الطبقات. وعند فتح الورقة يظهر كل ثقب منعكسًا حول خط الطيّ كأنه في مرآة، فيصبح عدد الثقوب ${p.n}.`,{fig:p.fig})},
+  netValid(valid,invalids){if(!FG.validNet(valid))throw new Error('net not valid');invalids.forEach(n=>{if(FG.validNet(n))throw new Error('invalid net is valid '+JSON.stringify(n))});
+    return Q(6,'أيّ الشبكات الآتية يمكن طيّها لتكوّن مكعبًا؟',[valid,...invalids].map(n=>fo(FG.net(n))),'عند طيّ الشبكة الصحيحة تغطي المربعات الستة أوجه المكعب الستة دون تداخل. أما الشبكات الأخرى فيتداخل فيها وجهان على المكان نفسه فيبقى وجه مفتوح.')},
+  netOpp(cells,labels,i,dis,ex){if(!FG.validNet(cells))throw new Error('net');const j=FG.opposite(cells,i);const ans=String(labels[j]);dis=dis.map(String);if(dis.includes(ans)||dis.includes(String(labels[i])))throw new Error('opp dis');
+    const fig=FG.svg('0 0 100 100',FG.net(cells,labels),'fmid');
+    return Q(6,`طُويت الشبكة لتكوّن مكعبًا. ما الرقم الموجود على الوجه المقابل للرقم ${labels[i]}؟`,[ans,...dis],ex||`عند الطيّ يصبح الوجه ${ans} مقابلًا للوجه ${labels[i]}. ومن القواعد المفيدة أن الوجهين المفصولين بمربع واحد في صفٍّ مستقيم يتقابلان. أما الأوجه الملاصقة للوجه ${labels[i]} فلا يمكن أن تقابله.`,{fig})},
+  isoCount(h,dis){const n=h.flat().reduce((a,b)=>a+b,0);return Q(6,'كم مكعبًا في المجسّم الآتي؟ (المكعبات متراصّة ولا يوجد فراغ بينها أو تحتها)',[String(n),...dis.map(String)],`نعدّ المكعبات عمودًا عمودًا من الأعلى: ارتفاعات الأعمدة ${h.flat().filter(v=>v).join(' + ')} = ${n} مكعبًا، مع الانتباه إلى المكعبات المخفية تحت المكعبات الظاهرة.`,{fig:FG.iso(h,true)})},
+  isoFill(h,dis){const n=h.flat().reduce((a,b)=>a+b,0),k=27-n;return Q(6,'كم مكعبًا صغيرًا نحتاج لإكمال هذا المجسّم ليصبح مكعبًا كبيرًا من 3 × 3 × 3؟',[String(k),...dis.map(String)],`المكعب الكبير فيه 3 × 3 × 3 = 27 مكعبًا. في المجسّم ${h.flat().filter(v=>v).join(' + ')} = ${n} مكعبًا، فنحتاج إلى 27 − ${n} = ${k} مكعبًا.`,{fig:FG.iso(h,true)})},
+  mirrorClock(shown,real,dis){const[h,m]=shown;return Q(6,'هذه ساعة حائط تظهر في المرآة. كم الساعة الحقيقية؟',[real,...dis],`الساعة في المرآة تبدو كأنها تشير إلى ${h}:${String(m).padStart(2,'0')}. وتُحسب الساعة الحقيقية بطرح الوقت الظاهر من 12:00، فتكون ${real}.`,{fig:FG.clock(h,m)})}
+};
+function chk(o){const k=o.map(x=>typeof x==='string'?x:FG.pkey(x));if(new Set(k).size!==k.length)throw new Error('duplicate options');}
+
+/* ================= النموذج الأول ================= */
+function latin(fn,A,B){const cells=[];for(let i=0;i<3;i++)for(let j=0;j<3;j++)cells.push(i===2&&j===2?null:fn(A[(i+j)%3],B[(i+2*j)%3]));return cells}
+function buildM1(){
+const sh=(t,f)=>FG.shape(t,50,50,30,f);
+const qs=[
+/* ---- التناظر اللفظي ---- */
+{s:0,q:"مِقَصّ : قَصّ",o:["مطرقة : مسمار","باب : بيت","مشط : تسريح","ماء : عطش"],a:2,e:"المقص أداة وظيفتها القص، والمشط أداة وظيفتها التسريح (أداة : وظيفتها)."},
+{s:0,q:"طبيب : مستشفى",o:["مريض : دواء","معلم : مدرسة","طالب : كتاب","مهندس : تصميم"],a:1,e:"المستشفى مكان عمل الطبيب، والمدرسة مكان عمل المعلم."},
+{s:0,q:"شجرة : غابة",o:["شمس : نهار","نهر : بحر","سماء : أرض","نجمة : مجرة"],a:3,e:"الغابة مجموعة من الأشجار، والمجرة مجموعة من النجوم (فرد : مجموعته)."},
+{s:0,q:"سريع : بطيء",o:["كبير : ضخم","شجاع : جبان","جميل : حسن","قوي : متين"],a:1,e:"العلاقة تضاد، أما البدائل الأخرى فكلماتها مترادفة."},
+{s:0,q:"صوف : خروف",o:["خشب : نجار","قطن : قميص","حرير : دودة القز","حليب : إناء"],a:2,e:"الصوف مادة نحصل عليها من الخروف، والحرير مادة نحصل عليها من دودة القز."},
+{s:0,q:"عين : رؤية",o:["أذن : سمع","يد : أصابع","أنف : وجه","فم : أسنان"],a:0,e:"العين عضو وظيفته الرؤية، والأذن عضو وظيفته السمع."},
+{s:0,q:"بذرة : شجرة",o:["حجر : جبل","قطرة : مطر","ورقة : كتاب","بيضة : كتكوت"],a:3,e:"البذرة تنمو فتصبح شجرة، والبيضة يخرج منها كتكوت (مرحلة أولى : ما تتحول إليه)."},
+{s:0,q:"ثانية : دقيقة",o:["يوم : أسبوع","دقيقة : ساعة","شهر : سنة","ساعة : يوم"],a:1,e:"كل 60 ثانية تساوي دقيقة، وكل 60 دقيقة تساوي ساعة؛ النسبة نفسها."},
+{s:0,q:"جائع : طعام",o:["نائم : سرير","قارئ : مكتبة","عطشان : ماء","لاعب : ملعب"],a:2,e:"الجائع يحتاج إلى الطعام، والعطشان يحتاج إلى الماء (حاجة : ما يسدّها)."},
+{s:0,q:"كاتب : رواية",o:["قارئ : كتاب","ملحن : لحن","ممثل : مسرح","رسام : فرشاة"],a:1,e:"الكاتب يُبدع الرواية، والملحن يُبدع اللحن (المبدع : إنتاجه)."},
+{s:0,q:"ذهب : منجم",o:["نفط : بئر","ماء : كوب","خبز : مخبز","قمح : دقيق"],e:"الذهب يُستخرج من المنجم، والنفط يُستخرج من البئر (مادة : مكان استخراجها)."},
+{s:0,q:"همس : صراخ",o:["نسيم : عاصفة","مطر : غيم","ليل : نهار","صوت : أذن"],e:"الهمس صوت ضعيف والصراخ صوت شديد، والنسيم ريح خفيفة والعاصفة ريح شديدة (الدرجة الضعيفة : الدرجة الشديدة)."},
+/* ---- إكمال الجمل والمفردات ---- */
+{s:1,t:"اختر الكلمة المناسبة لإكمال الفراغ:",q:"العالِمُ الحقيقيُّ ........ رأيه إذا ظهر له الدليلُ على خطئه.",o:["يتمسّك بـ","يتراجع عن","يفتخر بـ","يُصرّ على"],a:1,e:"ظهور الدليل على الخطأ يقتضي التراجع عن الرأي."},
+{s:1,t:"اختر الكلمة المناسبة لإكمال الفراغ:",q:"كلما زادت ........ الطالب في القراءة اتّسعت ثقافته.",o:["مدة غياب","صعوبة","رغبة","ملل"],a:2,e:"الرغبة في القراءة تزيد منها فتتسع الثقافة."},
+{s:1,t:"اختر الكلمة المناسبة لإكمال الفراغ:",q:"لم يكن فوزُ الفريق ........، بل جاء نتيجةَ تدريبٍ طويلٍ ومتواصل.",o:["مستحقًّا","صدفةً","متوقّعًا","كبيرًا"],a:1,e:"«بل» تفيد المقابلة؛ فالتدريب الطويل يقابل الصدفة."},
+{s:1,t:"اختر الكلمة المناسبة لإكمال الفراغ:",q:"الماء ضروري للحياة؛ ........ لا يستطيع الإنسان العيش بدونه إلا أيامًا قليلة.",o:["لكنّ","بينما","إذ","رغم أنّ"],a:2,e:"«إذ» تفيد التعليل، والجملة الثانية تعلّل الأولى ولا تعارضها."},
+{s:1,t:"اختر الكلمة المناسبة لإكمال الفراغ:",q:"........ الطالبُ المجتهدُ على جائزة التفوّق.",o:["حصل","وصل","نال","فاز"],e:"نقول «حصل على الجائزة»، أما «نال» فتأتي بلا حرف جر (نال الجائزة)، و«فاز» تأتي مع الباء (فاز بالجائزة)."},
+{s:1,q:"أيّ الكلمات الآتية لا تنتمي إلى المجموعة؟",o:["أسد","نمر","حصان","فهد"],a:2,e:"الأسد والنمر والفهد حيوانات مفترسة، أما الحصان فآكل عشب."},
+{s:1,q:"مرادف كلمة «الوجيز» هو:",o:["الطويل","المختصر","الغامض","الواضح"],a:1,e:"الوجيز هو المختصر قليل الكلام."},
+{s:1,q:"عكس كلمة «الشحيح» هو:",o:["البخيل","الفقير","الكريم","الغني"],a:2,e:"الشحيح هو البخيل، وعكسه الكريم."},
+{s:1,t:"حدّد الكلمة التي لا يتناسب معناها مع سياق الجملة (الخطأ السياقي):",q:"شرب الطفلُ الحليبَ البارد فشعر بالدفء في ليلة الشتاء.",o:["البارد","شرب","الدفء","الشتاء"],e:"الحليب البارد لا يمنح الدفء، والصواب «الحليب الساخن»."},
+{s:1,t:"حدّد الكلمة التي لا يتناسب معناها مع سياق الجملة (الخطأ السياقي):",q:"أسرعَ الطالبُ إلى المدرسة لأنه استيقظ مبكرًا.",o:["مبكرًا","أسرع","المدرسة","استيقظ"],e:"من يستيقظ مبكرًا لا يحتاج إلى الإسراع، والصواب «استيقظ متأخرًا»."},
+/* ---- الاستيعاب المقروء ---- */
+{s:2,p:1,q:"الفكرة الرئيسة للنص هي:",o:["فوائد العسل للإنسان","تنظيم حياة النحل وطريقة تواصله","أنواع الأزهار في الحقول","أخطار الحشرات على المزارع"],a:1,e:"النص يتحدث عن أفراد الخلية ومهامهم وطريقة إخبار بعضهم بمكان الأزهار."},
+{s:2,p:1,q:"أيّ المهام الآتية لا تقوم بها الشغالات؟",o:["جمع الرحيق","بناء الأقراص الشمعية","وضع البيض","الدفاع عن الخلية"],a:2,e:"وضع البيض مهمة الملكة وحدها."},
+{s:2,p:1,q:"الهدف من رقصة الشغالة هو:",o:["إرشاد أخواتها إلى مكان الأزهار","طرد الذكور من الخلية","تنظيف الأقراص الشمعية","إسعاد الملكة"],a:0,e:"الرقصة تخبر النحلات باتجاه الحقل وبُعده."},
+{s:2,p:1,q:"رقصت نحلتان؛ فاهتزّت الأولى مدةً أقصرَ من الثانية. نستنتج أن:",o:["حقل الأولى أبعد","حقل الأولى أقرب","أزهار حقل الأولى أكثر","الأولى أصغر سنًّا"],a:1,e:"كلما طالت مدة الاهتزاز كان الحقل أبعد، فالمدة الأقصر تعني حقلًا أقرب."},
+{s:2,p:1,q:"معنى كلمة «يقتصر» في النص:",o:["يزيد","يتأخر","ينحصر","يتوسع"],a:2,e:"يقتصر دورها: أي ينحصر ولا يتعدى مهمة واحدة."},
+{s:2,p:2,q:"يخزّن الجمل في سنامه:",o:["الدهون","الماء","الرمل","الهواء"],e:"ذكر النص أن الإبل تخزّن الدهون في سنامها وتحوّلها إلى طاقة عند قلة الطعام. ويظن كثير من الناس خطأً أن السنام يخزّن الماء."},
+{s:2,p:2,q:"ما الذي يمنع الجمل من الغوص في الرمال؟",o:["خفافه العريضة","رموشه الطويلة","سنامه الكبير","إغلاق فتحتي أنفه"],e:"ذكر النص أن لأقدام الإبل خفافًا عريضة تمنعها من الغوص في الرمال."},
+{s:2,p:2,q:"أنسب عنوان للنص:",o:["الإبل وتكيّفها مع الصحراء","طعام الإبل المفضّل","سباقات الإبل","أنواع العواصف الرملية"],e:"النص كله يدور حول صفات الإبل التي تساعدها على العيش في الصحراء ومكانتها عند العرب."},
+{s:2,p:2,q:"معنى كلمة «القاسية» في النص:",o:["الصعبة الشديدة","اللطيفة","الباردة","الجميلة"],e:"البيئة القاسية هي البيئة الصعبة الشديدة، كالصحراء بحرّها وقلة مائها."},
+{s:2,p:2,q:"إذا قلّ الطعام في الصحراء مدةً طويلة، فمن المتوقع أن:",o:["يصغر سنام الجمل","يكبر سنام الجمل","تطول رموش الجمل","تتسع خفاف الجمل"],e:"الجمل يحوّل الدهون المخزّنة في سنامه إلى طاقة عند قلة الطعام، فيقلّ ما فيه من دهون ويصغر حجمه."},
+/* ---- المتتابعات ---- */
+{s:3,q:"2 ، 6 ، 18 ، 54 ، ؟",o:["108","162","72","216"],a:1,e:"كل عدد يساوي السابق × 3، و 54 × 3 = 162."},
+{s:3,q:"3 ، 7 ، 15 ، 31 ، ؟",o:["62","47","63","64"],a:2,e:"نضرب في 2 ثم نضيف 1: 31 × 2 + 1 = 63."},
+{s:3,q:"1 ، 4 ، 9 ، 16 ، 25 ، ؟",o:["30","36","35","49"],a:1,e:"مربعات الأعداد: 1²، 2²، 3²، 4²، 5²، ثم 6² = 36."},
+{s:3,q:"1 ، 1 ، 2 ، 3 ، 5 ، 8 ، ؟",o:["11","12","13","16"],a:2,e:"كل عدد هو مجموع العددين قبله: 5 + 8 = 13."},
+{s:3,q:"50 ، 47 ، 41 ، 32 ، ؟",o:["23","20","22","18"],a:1,e:"نطرح 3 ثم 6 ثم 9 ثم 12: 32 − 12 = 20."},
+{s:3,q:"2 ، 3 ، 5 ، 7 ، 11 ، ؟",o:["13","15","12","17"],a:0,e:"هذه الأعداد الأولية بالترتيب، والتالي بعد 11 هو 13."},
+{s:3,q:"5 ، 10 ، 8 ، 16 ، 14 ، ؟",o:["12","28","24","30"],a:1,e:"نضرب في 2 ثم نطرح 2 بالتناوب: 14 × 2 = 28."},
+{s:3,q:"1 ، 2 ، 6 ، 24 ، 120 ، ؟",o:["240","600","720","144"],a:2,e:"نضرب في 2 ثم 3 ثم 4 ثم 5 ثم 6: 120 × 6 = 720."},
+{s:3,q:"4 ، 9 ، 19 ، 39 ، ؟",o:["79","78","80","59"],e:"كل عدد يساوي السابق × 2 + 1: 39 × 2 + 1 = 79."},
+{s:3,q:"2 ، 20 ، 4 ، 17 ، 6 ، 14 ، ؟",o:["8","11","10","16"],e:"متتابعتان متداخلتان: الأولى (2، 4، 6، ...) تزيد 2، والثانية (20، 17، 14) تنقص 3. والعدد التالي من الأولى: 8."},
+/* ---- الاستدلال الرياضي ---- */
+{s:4,q:"إذا كان ثمن 3 أقلام 12 ريالًا، فكم ثمن 7 أقلام من النوع نفسه؟",o:["21 ريالًا","24 ريالًا","28 ريالًا","32 ريالًا"],a:2,e:"ثمن القلم 12 ÷ 3 = 4 ريالات، و 7 × 4 = 28 ريالًا."},
+{s:4,q:"عمر أحمد يزيد على عمر خالد بـ 4 سنوات، ومجموع عمريهما 30 سنة. كم عمر أحمد؟",o:["13 سنة","15 سنة","17 سنة","19 سنة"],a:2,e:"(30 − 4) ÷ 2 = 13 عمر خالد، فعمر أحمد 13 + 4 = 17."},
+{s:4,q:"فكّرتُ في عدد، أضفتُ إليه 5 ثم ضربتُ الناتج في 3 فكان 45. ما العدد؟",o:["10","15","12","8"],a:0,e:"نعكس العمليات: 45 ÷ 3 = 15، ثم 15 − 5 = 10."},
+{s:4,q:"مستطيل محيطه 30 سم، وطوله ضعف عرضه. ما مساحته؟",o:["50 سم²","45 سم²","60 سم²","100 سم²"],a:0,e:"نصف المحيط 15 = العرض + 2 × العرض، فالعرض 5 والطول 10، والمساحة 5 × 10 = 50 سم²."},
+{s:4,q:"إذا كان 40% من عدد يساوي 24، فما العدد؟",o:["48","60","64","96"],a:1,e:"10% من العدد = 24 ÷ 4 = 6، فالعدد كاملًا 6 × 10 = 60."},
+{s:4,q:"انطلق قطار الساعة 8:45 صباحًا، واستغرقت رحلته ساعتين و35 دقيقة. متى وصل؟",o:["10:20","11:10","11:20","11:30"],a:2,e:"8:45 + ساعتان = 10:45، ثم + 35 دقيقة = 11:20."},
+{s:4,q:"متوسط 4 أعداد يساوي 15، وثلاثة منها هي 10 و12 و20. ما العدد الرابع؟",o:["13","15","18","20"],a:2,e:"مجموع الأعداد 4 × 15 = 60، ومجموع الثلاثة 42، فالرابع 60 − 42 = 18."},
+{s:4,q:"صنبور يملأ خزانًا في 6 ساعات، وصنبور آخر يملؤه في 3 ساعات. إذا فُتحا معًا، ففي كم ساعة يمتلئ الخزان؟",o:["ساعتان","3 ساعات","4 ساعات","4.5 ساعات"],a:0,e:"في الساعة يملأ الأول 1/6 والثاني 2/6، فمعًا 3/6 = نصف الخزان، فيمتلئ في ساعتين."},
+{s:4,q:"ما أصغر عدد يقبل القسمة على 4 و6 و9 دون باقٍ؟",o:["24","36","54","72"],a:1,e:"المضاعف المشترك الأصغر للأعداد 4 و6 و9 هو 36."},
+{s:4,q:"في فصل 30 طالبًا وطالبة، والنسبة بين البنين والبنات 2 : 3. كم عدد البنات؟",o:["12","15","18","20"],a:2,e:"مجموع الأجزاء 5، والجزء = 30 ÷ 5 = 6، فالبنات 3 × 6 = 18."},
+{s:4,q:"اشترى سعد 3 دفاتر بسعر 5 ريالات للدفتر، وقلمين بسعر 4 ريالات للقلم، ودفع 50 ريالًا. كم الباقي له؟",o:["27 ريالًا","23 ريالًا","33 ريالًا","37 ريالًا"],e:"ثمن الدفاتر 15 وثمن القلمين 8، فالمجموع 23 ريالًا، والباقي 50 − 23 = 27 ريالًا."},
+{s:4,q:"قطعة قماش طولها 3 أمتار قُصّت إلى قطع طول كل منها 25 سم. كم عدد القطع؟",o:["12","75","8","15"],e:"3 أمتار = 300 سم، و 300 ÷ 25 = 12 قطعة."},
+/* ---- الاستدلال المنطقي ---- */
+{s:5,q:"كل أعضاء نادي العلوم يحبون التجارب، وسامي عضو في نادي العلوم. إذن:",o:["سامي لا يحب التجارب","سامي يحب التجارب","كل من يحب التجارب عضو في النادي","لا يمكن معرفة شيء عن سامي"],a:1,e:"ما ينطبق على كل أعضاء النادي ينطبق على سامي لأنه منهم."},
+{s:5,q:"سارة أطول من منى، ومنى أطول من هند، وليلى أطول من سارة. مَن الأقصر؟",o:["سارة","منى","هند","ليلى"],a:2,e:"الترتيب من الأطول: ليلى، سارة، منى، هند."},
+{s:5,q:"إذا كان اليوم الخميس، فما اليوم بعد 100 يوم؟",o:["الجمعة","السبت","الأحد","الخميس"],a:1,e:"100 = 14 أسبوعًا (98 يومًا) + يومان، والخميس + يومان = السبت."},
+{s:5,q:"في لغة سرية تُكتب كلمة «قلم» هكذا: «ملق». كيف تُكتب كلمة «باب»؟",o:["ببا","ابب","باب","بباب"],a:2,e:"القاعدة عكس ترتيب الحروف، وكلمة «باب» إذا عُكست بقيت «باب»."},
+{s:5,q:"اجتمع 5 أصدقاء، وصافح كل واحد منهم كل صديق آخر مرة واحدة فقط. كم عدد المصافحات؟",o:["10","20","25","15"],a:0,e:"الأول يصافح 4، والثاني 3 جدد، والثالث 2، والرابع 1: 4 + 3 + 2 + 1 = 10 مصافحات."},
+{s:5,q:"يقف علي متجهًا نحو الشمال، ثم استدار إلى اليمين، ثم استدار إلى اليمين مرة أخرى، ثم استدار إلى اليسار. إلى أي اتجاه ينظر الآن؟",o:["الشمال","الجنوب","الشرق","الغرب"],a:2,e:"شمال ← يمين: شرق ← يمين: جنوب ← يسار: شرق."},
+{s:5,q:"خمسة طلاب في طابور: سالم أمام فهد، وفهد أمام ماجد، ونايف خلف ماجد، وعادل أمام سالم. من يقف في وسط الطابور؟",o:["فهد","سالم","ماجد","عادل"],e:"الترتيب من الأمام: عادل، سالم، فهد، ماجد، نايف. فالذي في الوسط (الثالث) هو فهد."},
+{s:5,q:"كل المربعات مستطيلات، وبعض المستطيلات ليست مربعات. أيّ العبارات الآتية صحيحة؟",o:["كل مربع مستطيل","كل مستطيل مربع","لا يوجد مستطيل مربع","بعض المربعات ليست مستطيلات"],e:"العبارة الأولى في السؤال تقول إن كل المربعات مستطيلات، فكل مربع مستطيل. أما العكس فليس صحيحًا لأن بعض المستطيلات ليست مربعات."},
+/* ---- الإدراك المكاني ---- */
+T.mirror('F',3),
+T.rotate('L',0,'r','ربع دورة (90°) مع عقارب الساعة'),
+T.paper(['V','H'],[[0.2,0.7]]),
+T.paper(['D'],[[0.2,0.65]]),
+T.netValid([[0,0],[0,1],[1,1],[2,1],[3,1],[3,2]],[[[0,0],[1,0],[2,0],[3,0],[0,1],[3,1]],[[0,0],[1,0],[2,0],[0,1],[1,1],[2,1]],[[0,1],[1,1],[2,1],[3,1],[4,1],[1,0]]]),
+T.netOpp([[1,0],[0,1],[1,1],[2,1],[1,2],[1,3]],[1,2,3,4,5,6],1,[3,5,1]),
+T.isoCount([[3,2,1],[2,1,1]],[8,9,11]),
+T.isoFill([[3,2,2],[2,2,1],[1,1,0]],[12,14,11]),
+Q(6,'كم مربعًا بجميع الأحجام يوجد في الشكل؟',['14','9','10','13'],'9 مربعات صغيرة + 4 مربعات متوسطة (كل منها 2×2) + مربع كبير واحد = 14 مربعًا.',{fig:FG.gridFig(3,3)}),
+T.mirrorClock([9,30],'2:30',['9:30','3:30','2:00']),
+{s:6,q:"مكعب كبير طُليت جميع أوجهه، ثم قُطّع إلى 27 مكعبًا صغيرًا متساويًا. كم مكعبًا صغيرًا طُلي له وجهان فقط؟",o:["8","6","12","1"],a:2,e:"المكعبات ذات الوجهين تقع في منتصف الأحرف، وللمكعب 12 حرفًا، في كل حرف مكعب واحد."},
+{s:6,q:"ما قياس الزاوية الصغرى بين عقربي الساعة عندما تشير إلى الثالثة تمامًا؟",o:["45°","90°","120°","180°"],a:1,e:"بين كل رقمين 30°، وبين 12 و3 ثلاثة أقسام: 3 × 30° = 90°."},
+/* ---- المرونة العقلية ---- */
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',[180,135,225,0].map(r=>fo(FG.one('arrow','s',r))),'السهم يدور 45° مع اتجاه عقارب الساعة في كل خطوة، فبعد أن أشار إلى الأسفل واليمين يشير إلى الأسفل تمامًا.',{t:SEQ_T,fig:FG.seq([0,45,90,135].map(r=>FG.one('arrow','s',r)))}),
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',[[0,'circle'],[0,'triangle'],[3,'circle'],[1,'circle']].map(([p,c])=>fo(FG.cornerDot(p,c))),'النقطة السوداء تنتقل إلى الركن التالي مع اتجاه عقارب الساعة، والشكل في الوسط يتبادل بين الدائرة والمثلث. فالتالي: النقطة في الركن العلوي الأيسر، وفي الوسط دائرة.',{t:SEQ_T,fig:FG.seq([[0,'circle'],[1,'triangle'],[2,'circle'],[3,'triangle']].map(([p,c])=>FG.cornerDot(p,c)))}),
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',['hexagon','pentagon','circle','star'].map(t=>fo(FG.one(t,'e'))),'عدد أضلاع الشكل يزيد ضلعًا في كل خطوة: 3 ثم 4 ثم 5، فالتالي شكل سداسي له 6 أضلاع.',{t:SEQ_T,fig:FG.seq(['triangle','square','pentagon'].map(t=>FG.one(t,'e')))}),
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',[[5,'s'],[5,'e'],[4,'s'],[6,'s']].map(([n,f])=>fo(FG.group('circle',n,f))),'عدد الدوائر يزيد واحدة في كل خطوة، ولونها يتبادل بين الأسود والأبيض؛ فالتالي 5 دوائر سوداء.',{t:SEQ_T,fig:FG.seq([[1,'s'],[2,'e'],[3,'s'],[4,'e']].map(([n,f])=>FG.group('circle',n,f)))}),
+Q(7,'ما الشكل الناقص؟',[['triangle','s'],['triangle','e'],['circle','s'],['square','g']].map(([t,f])=>fo(sh(t,f))),'في كل صف وفي كل عمود يظهر كل شكل (دائرة، مثلث، مربع) مرة واحدة، وكل لون (أسود، أبيض، رمادي) مرة واحدة. الناقص في الصف الأخير هو المثلث، واللون الناقص هو الأسود.',{t:MAT_T,fig:FG.matrix(latin(sh,['circle','triangle','square'],['s','e','g']))}),
+Q(7,'ما الشكل الناقص؟',[['circle',1],['circle',2],['star',1],['diamond',3]].map(([t,n])=>fo(FG.group(t,n,'s'))),'في كل صف وكل عمود يظهر كل نوع من الأشكال مرة واحدة، ويظهر كل عدد (1، 2، 3) مرة واحدة. الصف الأخير فيه 3 معيّنات ونجمتان، فالناقص دائرة واحدة.',{t:MAT_T,fig:FG.matrix(latin((t,n)=>FG.group(t,n,'s'),['star','circle','diamond'],[1,2,3]))}),
+Q(7,'ما الشكل الناقص؟',[['d2','h'],['d2','v'],['d1','h'],['d2','h','v']].map(s=>fo(FG.lines(s))),'في كل صف، الشكل الثالث (الأيسر) ناتج من جمع خطوط الشكلين الأول والثاني معًا؛ فنجمع القطر مع الخط الأفقي.',{t:MAT_T,fig:FG.matrix([['h'],['v'],['h','v'],['d1'],['c'],['d1','c'],['d2'],['h'],null].map(s=>s&&FG.lines(s)))}),
+T.oddMirror('F',0),
+Q(7,'أيّ الأشكال الآتية يختلف عن البقية؟',[['hexagon',5],['triangle',3],['square',4],['pentagon',5]].map(([t,n])=>fo(FG.polyDots(t,n))),'في كل شكل عدد النقاط يساوي عدد أضلاعه، إلا الشكل السداسي ففيه 6 أضلاع و5 نقاط فقط.'),
+Q(7,'ما الشكل الذي يكمل العلاقة؟',[['circle','triangle'],['triangle','circle'],['circle','circle'],['square','triangle']].map(([o,i])=>fo(FG.nest(o,i))),'الشكل الخارجي والشكل الداخلي يتبادلان مكانيهما: الخارجي يصبح داخليًّا والداخلي يصبح خارجيًّا.',{t:ANA_T,fig:FG.analogy(FG.nest('circle','square'),FG.nest('square','circle'),FG.nest('triangle','circle'))}),
+Q(7,'ما الشكل الذي يكمل العلاقة؟',[[0,'s'],[0,'e'],[180,'s'],[270,'s']].map(([r,f])=>fo(FG.one('arrow',f,r))),'السهم يدور ربع دورة (90°) مع عقارب الساعة ويتغيّر لونه (أسود ↔ أبيض). السهم الثالث يشير إلى اليسار، فبعد التدوير يشير إلى الأعلى ويصبح أسود.',{t:ANA_T,fig:FG.analogy(FG.one('arrow','s',0),FG.one('arrow','e',90),FG.one('arrow','e',270))}),
+Q(7,'كل شكل يمثل عددًا. ما قيمة المربع؟',['3','4','2','5'],'من المعادلة الأولى: المثلث = 10 ÷ 2 = 5. ومن الثانية: الدائرة = 9 − 5 = 4. ومن الثالثة: المربع = 7 − 4 = 3.',{fig:FG.eqs([['triangle','+','triangle','=','10'],['triangle','+','circle','=','9'],['circle','+','square','=','7']])}),
+/* ---- الاستدلال العلمي والميكانيكي ---- */
+Q(8,'إذا دار الترس 1 مع اتجاه عقارب الساعة كما في الرسم، فكيف يدور الترس 4؟',['عكس اتجاه عقارب الساعة','مع اتجاه عقارب الساعة','لا يدور','يدور مرة مع عقارب الساعة ومرة عكسها'],'كل ترسين متعشّقين يدوران في اتجاهين متعاكسين: الترس 1 مع عقارب الساعة، و2 عكسها، و3 معها، و4 عكسها.',{fig:FG.gearChain(4,true)}),
+Q(8,'ترسان متعشّقان؛ الكبير فيه 24 سنًّا والصغير فيه 8 أسنان. إذا دار الكبير دورة كاملة واحدة، فكم دورة يدور الصغير؟',['3 دورات','دورة واحدة','8 دورات','ثلث دورة'],'عندما يدور الكبير دورة كاملة تمرّ 24 سنًّا على الصغير، والصغير يكمل دورته كل 8 أسنان، فيدور 24 ÷ 8 = 3 دورات.',{fig:FG.gearPair(24,8,'24 سنًّا','8 أسنان')}),
+Q(8,'البكرة 1 تدور مع عقارب الساعة. يربط البكرتين 1 و2 سيرٌ مستقيم، ويربط البكرتين 2 و3 سيرٌ متقاطع. كيف تدور البكرة 3؟',['عكس اتجاه عقارب الساعة','مع اتجاه عقارب الساعة','لا تدور','تدور ببطء ثم تتوقف'],'السير المستقيم يجعل البكرتين تدوران في الاتجاه نفسه، فالبكرة 2 تدور مع عقارب الساعة. أما السير المتقاطع فيعكس الاتجاه، فتدور البكرة 3 عكس عقارب الساعة.',{fig:FG.belts(['o','x'],true)}),
+Q(8,'لوح متوازن على نقطة ارتكاز في منتصفه، وُضع عليه ثقل 6 كغ عند العلامة 2. عند أي علامة في الجهة الأخرى يجب وضع ثقل 3 كغ ليتوازن اللوح؟',['عند العلامة 4','عند العلامة 2','عند العلامة 3','عند العلامة 1'],'يتوازن اللوح عندما يتساوى (الثقل × البعد) في الجهتين: 6 × 2 = 12، والثقل 3 كغ يحتاج بعدًا قدره 12 ÷ 3 = 4. فالثقل الأخف يوضع أبعد عن نقطة الارتكاز.',{fig:FG.lever([{side:'r',d:2,label:'6 كغ'}])}),
+Q(8,'أيّ المنحدرات الآتية يحتاج إلى أقل جهد لدفع الصندوق نفسه إلى الارتفاع نفسه؟',[76,30,46,62].map(w=>ff(FG.ramp(w))),'كلما كان المنحدر أطول وأقل ميلًا قلّ الجهد اللازم لدفع الصندوق، مع أن المسافة التي يقطعها تصبح أطول.'),
+Q(8,'خزان ممتلئ بالماء فيه ثلاثة ثقوب على ارتفاعات مختلفة. من أي ثقب يندفع الماء بقوة أكبر؟',['الثقب 1','الثقب 2','الثقب 3','يندفع من الثقوب الثلاثة بالقوة نفسها'],'ضغط الماء يزداد كلما زاد العمق، والثقب 3 هو الأعمق (الأبعد عن سطح الماء)، فيندفع منه الماء بقوة أكبر.',{fig:FG.tankHoles(),a:2}),
+Q(8,'الميزانان متوازنان. كم دائرة تساوي المثلث في الوزن؟',['3','2','4','5'],'من الميزان (1): المربع = دائرتان. ومن الميزان (2): المثلث = مربع + دائرة = دائرتان + دائرة = 3 دوائر.',{fig:FG.scales([[['circle','circle'],['square']],[['square','circle'],['triangle']]])}),
+Q(8,'أراد طالب أن يعرف أثر كمية الضوء في نمو نبات الفاصولياء، فزرع نبتتين متشابهتين. ما الشيء الوحيد الذي يجب أن يختلف بين النبتتين؟',['كمية الضوء','كمية الماء','نوع التربة','نوع النبات'],'في التجربة العادلة نغيّر عاملًا واحدًا فقط هو الذي نريد معرفة أثره (الضوء)، ونُبقي بقية العوامل متساوية، حتى نتأكد أن الفرق في النمو سببه الضوء وحده.'),
+Q(8,'سجّل طالب درجة حرارة كوب ماء ساخن كل 5 دقائق كما في الجدول. ما درجة الحرارة المتوقعة بعد 20 دقيقة؟',['52','50','56','60'],'درجة الحرارة تنخفض بمقدار يقلّ كل مرة: 10 ثم 8 ثم 6، فالانخفاض التالي 4 درجات: 56 − 4 = 52. فكلما اقتربت حرارة الماء من حرارة الغرفة صار تبريده أبطأ.',{fig:FG.table(['الزمن (دقيقة)','0','5','10','15','20'],[['درجة الحرارة (°س)','80','70','62','56','؟']])}),
+Q(8,'مصباحان موصولان على التوالي في دائرة كهربائية واحدة. إذا احترق أحد المصباحين، فماذا يحدث للمصباح الآخر؟',['ينطفئ','تزداد إضاءته','يبقى مضيئًا كما هو','يحترق هو أيضًا'],'في التوصيل على التوالي يمرّ التيار في مسار واحد، فإذا احترق مصباح انقطع المسار كله فينطفئ المصباح الآخر.')
+];
+return{name:'النموذج الأول',passages:[
+ {title:'النحل',text:'النحل من الحشرات الاجتماعية التي تعيش في مستعمرات منظمة. تضم الخلية الواحدة ملكة واحدة تضع البيض، وآلاف الشغالات التي تجمع الرحيق وتبني الأقراص الشمعية وتدافع عن الخلية، إضافة إلى الذكور التي يقتصر دورها على تلقيح الملكة. وحين تعثر شغالة على حقل مليء بالأزهار تعود إلى الخلية وتؤدي رقصة خاصة تُخبر بها أخواتها باتجاه الحقل وبُعده، وقد وجد العلماء أن النحلة كلما اهتزت مدة أطول في رقصتها دلّ ذلك على أن الحقل أبعد.'},
+ {title:'الإبل',text:'تُسمّى الإبلُ «سفينةَ الصحراء» لأنها تحمل الناس والبضائع عبر الرمال الواسعة كما تحمل السفينةُ ركّابها عبر البحر. وللإبل قدرة عجيبة على التكيّف مع البيئة القاسية؛ فهي تستطيع أن تقطع مسافات طويلة دون أن تشرب الماء أيامًا عدة، وتخزّن الدهون في سنامها، فإذا قلّ الطعام حوّلت هذه الدهون إلى طاقة. ولأقدامها خفافٌ عريضة تمنعها من الغوص في الرمال، ولعيونها رموش طويلة تحميها من الغبار، كما تستطيع أن تغلق فتحتي أنفها عند هبوب العواصف الرملية. وقد اعتمد عليها العرب قديمًا في التنقل والتجارة، وما زالت تحظى بمكانة كبيرة في المملكة العربية السعودية حتى اليوم.'}
+],qs};
+}
+
+/* ================= النموذج الثاني ================= */
+function buildM2(){
+const sh=(t,f)=>FG.shape(t,50,50,30,f);
+const FILL="اختر الكلمة المناسبة لإكمال الفراغ:",CTX="حدّد الكلمة التي لا يتناسب معناها مع سياق الجملة (الخطأ السياقي):";
+const DIR=['عكس اتجاه عقارب الساعة','مع اتجاه عقارب الساعة'];
+const qs=[
+/* ---- التناظر اللفظي ---- */
+{s:0,q:"نجّار : خشب",o:["خيّاط : قماش","طبيب : مريض","مزارع : جرّار","طبّاخ : مطعم"],e:"النجار يصنع أعماله من الخشب، والخياط يصنع أعماله من القماش (صانع : المادة التي يعمل بها)."},
+{s:0,q:"كتاب : صفحات",o:["سلّم : درجات","مطر : غيم","باب : مفتاح","نهر : جسر"],e:"الكتاب يتكوّن من صفحات، والسلّم يتكوّن من درجات (الكل : أجزاؤه)."},
+{s:0,q:"ليل : نهار",o:["شتاء : صيف","غيم : مطر","شهر : سنة","ساعة : وقت"],e:"الليل عكس النهار، والشتاء عكس الصيف (تضاد)."},
+{s:0,q:"سمكة : زعانف",o:["طائر : جناحان","أسد : غابة","بقرة : حليب","نحلة : عسل"],e:"السمكة تتحرك بزعانفها، والطائر يتحرك بجناحيه (كائن : عضو حركته)."},
+{s:0,q:"جندي : جيش",o:["لاعب : فريق","معلم : سبورة","حكم : صافرة","ملعب : كرة"],e:"الجندي فرد في الجيش، واللاعب فرد في الفريق (فرد : الجماعة التي ينتمي إليها)."},
+{s:0,q:"ماء : سائل",o:["ثلج : صلب","بخار : ماء","حديد : مغناطيس","هواء : رياح"],e:"الماء مثال على المواد السائلة، والثلج مثال على المواد الصلبة (مادة : حالتها)."},
+{s:0,q:"مفتاح : قفل",o:["كلمة المرور : الحساب","باب : نافذة","نور : مصباح","سيارة : طريق"],e:"المفتاح يفتح القفل، وكلمة المرور تفتح الحساب (أداة الفتح : ما تفتحه)."},
+{s:0,q:"قمح : خبز",o:["عنب : زبيب","تفاح : شجرة","حليب : بقرة","ماء : عطش"],e:"الخبز يُصنع من القمح، والزبيب يُصنع من العنب بعد تجفيفه (المادة الخام : ما يُصنع منها)."},
+{s:0,q:"أسبوع : يوم",o:["سنة : شهر","يوم : أسبوع","دقيقة : ساعة","ساعة : زمن"],e:"الأسبوع يتكوّن من أيام، والسنة تتكوّن من أشهر (وحدة كبيرة : الوحدة الأصغر التي تتكوّن منها)."},
+{s:0,q:"نحلة : خلية",o:["طائر : عش","حصان : سرج","سمكة : صنّارة","أرنب : جزر"],e:"الخلية مسكن النحلة، والعش مسكن الطائر (كائن : مسكنه)."},
+{s:0,q:"مطر : مظلّة",o:["شمس : قبّعة","برد : شتاء","ماء : عطش","ريح : شراع"],e:"المظلة تحمينا من المطر، والقبعة تحمينا من الشمس (ما نحتمي منه : أداة الحماية)."},
+{s:0,q:"خائف : يرتجف",o:["حزين : يبكي","نائم : سرير","سعيد : حزين","متعب : طريق"],e:"الخائف يرتجف من شدة الخوف، والحزين يبكي من شدة الحزن (شعور : تصرّف يدل عليه)."},
+/* ---- إكمال الجمل والمفردات ---- */
+{s:1,t:FILL,q:"لولا ........ المطر لجفّت الأرض وماتت النباتات.",o:["نزولُ","انقطاعُ","خوفُ","بردُ"],e:"نزول المطر يمنع جفاف الأرض، فلولاه لجفّت."},
+{s:1,t:FILL,q:"يُعدّ الصبرُ ........ النجاح، فمن صبر على التعب نال ما يريد.",o:["مفتاحَ","عائقَ","نهايةَ","ضدَّ"],e:"الجملة الثانية تبيّن أن الصبر يوصل إلى النجاح، فهو مفتاحه."},
+{s:1,t:FILL,q:"رغم ........ الطريق، وصل المسافرون في الموعد المحدد.",o:["طولِ","قِصَرِ","سهولةِ","قُربِ"],e:"«رغم» تأتي قبل أمر صعب يُتوقّع أن يعيق، وطول الطريق قد يؤخر المسافرين لكنهم وصلوا في الموعد."},
+{s:1,t:FILL,q:"كان الاختبار ........ فلم يُجب عن جميع أسئلته إلا قليلٌ من الطلاب.",o:["صعبًا","سهلًا","قصيرًا","ممتعًا"],e:"قلة من أجابوا عن جميع الأسئلة تدل على أن الاختبار كان صعبًا."},
+{s:1,q:"الشخص الذي يُكثر الكلام فيما لا يفيد يوصف بأنه:",o:["ثرثار","حكيم","كتوم","خجول"],e:"الثرثار هو كثير الكلام فيما لا فائدة منه."},
+{s:1,q:"أيّ الكلمات الآتية لا تنتمي إلى المجموعة؟",o:["مكعب","مثلث","مربع","دائرة"],e:"المثلث والمربع والدائرة أشكال مستوية (ثنائية الأبعاد)، أما المكعب فمجسّم (ثلاثي الأبعاد)."},
+{s:1,q:"مرادف كلمة «الوَهَن» هو:",o:["الضعف","القوة","السرعة","الحزن"],e:"الوهن هو الضعف."},
+{s:1,q:"عكس كلمة «الإسراف» هو:",o:["الاقتصاد","التبذير","الإنفاق","الكرم"],e:"الإسراف هو تجاوز الحد في الإنفاق، وعكسه الاقتصاد والاعتدال. أما التبذير فمرادف له."},
+{s:1,t:CTX,q:"لبس عليٌّ معطفَه الخفيفَ ليحميَه من شدّة البرد.",o:["الخفيف","لبس","معطفه","البرد"],e:"المعطف الخفيف لا يحمي من شدة البرد، والصواب «الثقيل» أو «السميك»."},
+{s:1,t:CTX,q:"نامت سارةُ مبكرًا لأنها كانت نشيطةً جدًّا.",o:["نشيطة","نامت","مبكرًا","جدًّا"],e:"النشاط لا يدعو إلى النوم المبكر، والصواب «متعبة»."},
+/* ---- الاستيعاب المقروء ---- */
+{s:2,p:1,q:"لماذا تتحمّل النخلة الجفاف؟",o:["لأن جذورها تمتد عميقًا بحثًا عن الماء","لأن سعفها طويل","لأنها تنتج التمر","لأنها تعيش في الواحات"],e:"ذكر النص أن جذور النخلة تمتد عميقًا في الأرض بحثًا عن الماء، ولذلك تتحمّل الحرارة والجفاف."},
+{s:2,p:1,q:"صنع الأجداد الحبال من:",o:["ليف النخلة","سعف النخلة","جذوع النخلة","نوى التمر"],e:"ذكر النص أنهم صنعوا الحبال من الليف، والحصير والسلال من السعف، والسقوف من الجذوع."},
+{s:2,p:1,q:"يمدّ التمرُ الجسمَ بالطاقة بسرعة لأنه غني بـ:",o:["السكريات","الماء","الملح","الدهون"],e:"السكريات مصدر سريع للطاقة، وقد ذكر النص أن التمر غني بها."},
+{s:2,p:1,q:"الفكرة الرئيسة للنص:",o:["فوائد النخلة ومكانتها عند العرب","طريقة زراعة النخيل","أنواع التمور في الأحساء","صناعة الحصير والسلال"],e:"النص يتحدث عن صفات النخلة وفوائد ثمرها وأجزائها ومكانتها، أما بقية الخيارات فأفكار جزئية أو غير مذكورة."},
+{s:2,p:1,q:"تدل عبارة «لم يكن الأجداد يتركون شيئًا من النخلة دون فائدة» على أنهم:",o:["استفادوا من جميع أجزاء النخلة","كانوا يزرعون نخلًا كثيرًا","لم يحبّوا التمر","كانوا يبيعون النخيل"],e:"المعنى أنهم استعملوا كل جزء من النخلة، كالسعف والجذوع والليف."},
+{s:2,p:2,q:"يرى العلماء أن النوم:",o:["ضروري لصحة الجسم والعقل","وقت ضائع","مفيد للكبار فقط","يُضعف التركيز"],e:"ذكر النص أن العلماء يؤكدون أن النوم ضروري لصحة الجسم والعقل."},
+{s:2,p:2,q:"ماذا يفعل الدماغ في أثناء النوم؟",o:["يرتّب المعلومات ويثبّتها في الذاكرة","يتوقف عن العمل تمامًا","ينسى ما تعلّمه","يتعلّم معلومات جديدة"],e:"ذكر النص أن الدماغ يرتّب في أثناء النوم ما تعلّمه الإنسان ويثبّته في الذاكرة."},
+{s:2,p:2,q:"طالب في المرحلة الابتدائية ينام 6 ساعات فقط كل ليلة. وفقًا للنص فإنه:",o:["ينام أقل مما يحتاج","ينام أكثر مما يحتاج","ينام المدة المناسبة","لا يحتاج إلى النوم"],e:"يحتاج الطفل في سن الدراسة إلى 9 ساعات أو أكثر، و6 ساعات أقل من ذلك."},
+{s:2,p:2,q:"أيّ العبارات الآتية رأيٌ ذكره النص وليست حقيقة علمية؟",o:["النوم وقت ضائع","النوم ضروري لصحة الجسم","السهر الطويل يُضعف التركيز","الجسم يُصلح خلاياه في أثناء النوم"],e:"عبارة «النوم وقت ضائع» ظنٌّ عند بعض الناس، وقد ردّ عليه العلماء. أما بقية العبارات فحقائق ذكرها النص."},
+{s:2,p:2,q:"معنى كلمة «يُضعف» في النص:",o:["يُقلّل","يُقوّي","يُطيل","يُسرّع"],e:"السهر يُضعف التركيز أي يقلّله."},
+/* ---- المتتابعات ---- */
+{s:3,q:"3 ، 6 ، 12 ، 24 ، ؟",o:["48","36","30","42"],e:"كل عدد يساوي السابق × 2: 24 × 2 = 48."},
+{s:3,q:"100 ، 91 ، 82 ، 73 ، ؟",o:["64","63","65","54"],e:"نطرح 9 في كل مرة: 73 − 9 = 64."},
+{s:3,q:"1 ، 3 ، 6 ، 10 ، 15 ، ؟",o:["21","20","25","18"],e:"نضيف 2 ثم 3 ثم 4 ثم 5 ثم 6: 15 + 6 = 21."},
+{s:3,q:"2 ، 5 ، 11 ، 23 ، ؟",o:["47","46","45","35"],e:"نضرب في 2 ثم نضيف 1: 23 × 2 + 1 = 47."},
+{s:3,q:"1 ، 8 ، 27 ، 64 ، ؟",o:["125","100","81","128"],e:"هذه مكعبات الأعداد: 1³، 2³، 3³، 4³، ثم 5³ = 125."},
+{s:3,q:"7 ، 10 ، 9 ، 12 ، 11 ، ؟",o:["14","13","10","15"],e:"نضيف 3 ثم نطرح 1 بالتناوب: 11 + 3 = 14."},
+{s:3,q:"1 ، 2 ، 4 ، 7 ، 11 ، ؟",o:["16","15","14","18"],e:"نضيف 1 ثم 2 ثم 3 ثم 4 ثم 5: 11 + 5 = 16."},
+{s:3,q:"3 ، 9 ، 4 ، 16 ، 5 ، ؟",o:["25","6","20","10"],e:"كل عدد يتبعه مربعه: 3 ثم 9، و4 ثم 16، و5 ثم 25."},
+{s:3,q:"64 ، 32 ، 16 ، 8 ، ؟",o:["4","2","6","0"],e:"كل عدد نصف العدد الذي قبله: 8 ÷ 2 = 4."},
+{s:3,t:"ما الحرف الذي يكمل المتتابعة؟",q:"أ ، ت ، ج ، خ ، ؟",o:["ذ","د","ر","ز"],e:"نتخطى حرفًا واحدًا في كل مرة حسب الترتيب الهجائي: أ (ب) ت (ث) ج (ح) خ (د) ذ."},
+/* ---- الاستدلال الرياضي ---- */
+{s:4,q:"مع ليلى 45 ريالًا، أنفقت ثلثها. كم بقي معها؟",o:["30 ريالًا","15 ريالًا","35 ريالًا","25 ريالًا"],e:"ثلث 45 = 15، والباقي 45 − 15 = 30 ريالًا."},
+{s:4,q:"سيارة تسير بسرعة 80 كم في الساعة. كم كيلومترًا تقطع في ساعتين ونصف؟",o:["200 كم","160 كم","180 كم","240 كم"],e:"في ساعتين 160 كم، وفي نصف ساعة 40 كم، فالمجموع 200 كم."},
+{s:4,q:"ثلاثة أعداد متتالية مجموعها 48. ما أكبرها؟",o:["17","16","18","15"],e:"العدد الأوسط = 48 ÷ 3 = 16، فالأعداد 15 و16 و17، وأكبرها 17."},
+{s:4,q:"مربع محيطه 36 سم. ما مساحته؟",o:["81 سم²","36 سم²","72 سم²","54 سم²"],e:"طول الضلع = 36 ÷ 4 = 9 سم، والمساحة 9 × 9 = 81 سم²."},
+{s:4,q:"لعبة ثمنها 120 ريالًا عليها خصم 25%. كم سعرها بعد الخصم؟",o:["90 ريالًا","95 ريالًا","30 ريالًا","100 ريال"],e:"25% تعني الربع، وربع 120 = 30، فالسعر بعد الخصم 120 − 30 = 90 ريالًا."},
+{s:4,q:"في صندوق 4 كرات حمراء و6 كرات زرقاء. إذا سحبت كرة واحدة دون نظر، فما احتمال أن تكون حمراء؟",o:["4 من 10","6 من 10","4 من 6","1 من 4"],e:"عدد الكرات كلها 10، منها 4 حمراء، فاحتمال سحب كرة حمراء 4 من 10."},
+{s:4,q:"يقرأ خالد 12 صفحة يوميًّا. كم يومًا يحتاج لقراءة كتاب من 180 صفحة؟",o:["15 يومًا","18 يومًا","12 يومًا","16 يومًا"],e:"180 ÷ 12 = 15 يومًا."},
+{s:4,q:"عمر الأب الآن 40 سنة، وعمر ابنه 10 سنوات. بعد كم سنة يصبح عمر الأب ثلاثة أمثال عمر ابنه؟",o:["5 سنوات","10 سنوات","3 سنوات","6 سنوات"],e:"بعد 5 سنوات يصبح عمر الأب 45 وعمر الابن 15، و 45 = 3 × 15."},
+{s:4,q:"ثمن 5 كتب يساوي ثمن حقيبتين، وثمن الحقيبة 50 ريالًا. ما ثمن الكتاب؟",o:["20 ريالًا","25 ريالًا","10 ريالات","40 ريالًا"],e:"ثمن الحقيبتين 100 ريال، فثمن الكتاب 100 ÷ 5 = 20 ريالًا."},
+{s:4,q:"ما العدد الذي إذا ضُرب في نفسه ثم أُضيف إلى الناتج 5 كان المجموع 54؟",o:["7","8","6","9"],e:"54 − 5 = 49، والعدد الذي إذا ضُرب في نفسه كان 49 هو 7."},
+{s:4,q:"يريد مزارع وضع سياج حول حديقة مستطيلة طولها 20 م وعرضها 12 م، ويترك فيه مدخلًا عرضه 2 م. كم مترًا من السياج يحتاج؟",o:["62 مترًا","64 مترًا","66 مترًا","240 مترًا"],e:"محيط الحديقة 2 × (20 + 12) = 64 م، ونطرح عرض المدخل: 64 − 2 = 62 مترًا."},
+{s:4,q:"ساعة تتأخر 3 دقائق كل ساعة. ضُبطت على الوقت الصحيح الساعة 8:00 صباحًا. ماذا ستُظهر عندما يكون الوقت الصحيح 12:00 ظهرًا؟",o:["11:48","12:12","11:57","11:45"],e:"مرّت 4 ساعات، والساعة تتأخر 3 دقائق في كل ساعة، فتتأخر 12 دقيقة: 12:00 − 12 دقيقة = 11:48."},
+/* ---- الاستدلال المنطقي ---- */
+{s:5,q:"كل طلاب فصل خالد يلبسون الثوب الأبيض، وناصر لا يلبس الثوب الأبيض. إذن:",o:["ناصر ليس في فصل خالد","ناصر في فصل خالد","كل من يلبس الثوب الأبيض في فصل خالد","لا يمكن الحكم على ناصر"],e:"لو كان ناصر في فصل خالد للبس الثوب الأبيض، وهو لا يلبسه، فهو ليس في فصل خالد."},
+{s:5,q:"أربعة أصدقاء يجلسون في صف واحد. أحمد في أحد طرفي الصف وبجواره سعد، وخالد يجلس بين سعد وفيصل. من يجلس في الطرف الآخر؟",o:["فيصل","خالد","سعد","لا يمكن تحديده"],e:"الترتيب: أحمد، سعد، خالد، فيصل. فالذي في الطرف الآخر هو فيصل."},
+{s:5,q:"إذا كان اليوم الثلاثاء، فما اليوم الذي كان قبل 10 أيام؟",o:["السبت","الجمعة","الأحد","الخميس"],e:"10 أيام = أسبوع + 3 أيام. قبل أسبوع كان الثلاثاء، ثم نرجع 3 أيام: الإثنين، الأحد، السبت."},
+{s:5,q:"عند خالد ضعف ما عند فهد من الكتب، وعند فهد ثلاثة أمثال ما عند سعد. إذا كان عند سعد 4 كتب، فكم كتابًا عند خالد؟",o:["24","12","20","36"],e:"عند فهد 3 × 4 = 12 كتابًا، وعند خالد 2 × 12 = 24 كتابًا."},
+{s:5,q:"حمد أكبر من سعيد بسنتين، وسعيد أصغر من ماجد بثلاث سنوات. أيّ العبارات الآتية صحيحة؟",o:["ماجد أكبر من حمد بسنة","حمد أكبر من ماجد بسنة","ماجد أكبر من حمد بخمس سنوات","حمد وماجد في العمر نفسه"],e:"إذا كان عمر سعيد 10 مثلًا، فعمر حمد 12 وعمر ماجد 13، فماجد أكبر من حمد بسنة."},
+{s:5,q:"في درج جوارب سوداء وبيضاء مختلطة، والغرفة مظلمة. ما أقل عدد من الجوارب يجب سحبه للتأكد من الحصول على جوربين من اللون نفسه؟",o:["3","2","4","6"],e:"في أسوأ الأحوال يكون أول جوربين من لونين مختلفين، والجورب الثالث سيطابق أحدهما حتمًا لأن هناك لونين فقط."},
+{s:5,q:"الصندوق الأحمر أثقل من الصندوق الأزرق، والصندوق الأخضر أخف من الصندوق الأزرق. أيّ الصناديق هو الأخف؟",o:["الأخضر","الأزرق","الأحمر","لا يمكن تحديده"],e:"الترتيب من الأثقل: الأحمر، ثم الأزرق، ثم الأخضر، فالأخضر هو الأخف."},
+{s:5,q:"إذا كانت الساعة الآن 10 صباحًا، فكم ستكون الساعة بعد 50 ساعة؟",o:["12 ظهرًا","12 منتصف الليل","10 صباحًا","2 ظهرًا"],e:"50 ساعة = يومان (48 ساعة) + ساعتان، فبعد يومين تكون 10 صباحًا، وبعد ساعتين أخريين 12 ظهرًا."},
+/* ---- الإدراك المكاني ---- */
+T.water('P',2),
+T.rotate('N',0,'rr','نصف دورة (180°)'),
+T.paper(['H','V'],[[0.3,0.8]]),
+T.paper(['V'],[[0.15,0.3],[0.35,0.75]]),
+T.netValid([[0,0],[1,0],[1,1],[2,1],[2,2],[3,2]],[[[0,0],[1,0],[2,0],[3,0],[1,1],[2,1]],[[0,1],[1,1],[2,1],[3,1],[4,1],[2,0]],[[0,0],[0,1],[1,1],[2,1],[3,1],[2,0]]]),
+T.netOpp([[0,0],[1,0],[1,1],[2,1],[3,1],[3,2]],[1,2,3,4,5,6],1,[1,3,4],'إذا جعلنا الوجه 4 قاعدة للمكعب، يرتفع الوجهان 3 و5 على جانبيه، وينطوي الوجه 2 ليصبح الجدار الخلفي، وينطوي الوجه 6 ليصبح الجدار الأمامي، فيتقابل الوجهان 2 و6. أما الوجه 1 فيصبح الغطاء العلوي المقابل للقاعدة 4.'),
+T.isoCount([[3,3,2],[2,1,1]],[10,11,13]),
+T.isoFill([[3,3,2],[3,2,1],[2,1,1]],[8,10,18]),
+Q(6,'كم مثلثًا يوجد في الشكل؟',['12','6','9','10'],'من الرأس العلوي تخرج 4 خطوط (الضلعان والخطان الداخليان)، وكل خطين منها يكوّنان مثلثًا مع القاعدة السفلى: 6 مثلثات، ويكوّنان 6 مثلثات أخرى مع الخط الأفقي. المجموع 12 مثلثًا.',{fig:FG.triFig()}),
+T.mirrorClock([4,0],'8:00',['4:00','8:30','2:00']),
+{s:6,q:"مكعب كبير من 4 × 4 × 4 طُليت جميع أوجهه من الخارج، ثم قُطّع إلى 64 مكعبًا صغيرًا. كم مكعبًا صغيرًا لم يُطلَ أي وجه من وجوهه؟",o:["8","4","16","27"],e:"المكعبات غير المطلية هي الداخلية فقط، وتكوّن مكعبًا داخليًّا طول ضلعه 4 − 2 = 2، أي 2 × 2 × 2 = 8 مكعبات."},
+{s:6,q:"ما قياس الزاوية الصغرى بين عقربي الساعة عندما تشير إلى 9:30؟",o:["105°","90°","120°","100°"],e:"عند 9:30 يشير عقرب الدقائق إلى 6، وعقرب الساعات في منتصف المسافة بين 9 و10. بينهما 3 أقسام ونصف، وكل قسم 30°: 3.5 × 30° = 105°."},
+/* ---- المرونة العقلية ---- */
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',[[0,'s'],[0,'e'],[90,'s'],[270,'s']].map(([r,f])=>fo(FG.one('arrow',f,r))),'السهم يدور ربع دورة (90°) مع عقارب الساعة في كل خطوة، ولونه يتبادل بين الأسود والأبيض. بعد السهم الأبيض المتجه إلى اليسار يأتي سهم أسود متجه إلى الأعلى.',{t:SEQ_T,fig:FG.seq([[0,'s'],[90,'e'],[180,'s'],[270,'e']].map(([r,f])=>FG.one('arrow',f,r)))}),
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',[180,225,0,135].map(r=>fo(FG.radCell(r))),'الخط داخل الدائرة يدور 45° عكس اتجاه عقارب الساعة في كل خطوة، فبعد أن أشار إلى الأسفل يسارًا يشير إلى الأسفل تمامًا.',{t:SEQ_T,fig:FG.seq([0,-45,-90,-135].map(r=>FG.radCell(r)))}),
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',[[6,6],[6,5],[5,5],[6,4]].map(([n,k])=>fo(FG.partial(n,k))),'في كل خطوة يُرسم ضلع جديد من أضلاع الشكل السداسي: ضلعان، ثم 3، ثم 4، ثم 5، فيكتمل الشكل السداسي بأضلاعه الستة.',{t:SEQ_T,fig:FG.seq([2,3,4,5].map(k=>FG.partial(6,k)))}),
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',[['triangle','e'],['triangle','s'],['square','e'],['circle','e']].map(([t,f])=>fo(FG.one(t,f))),'الأشكال تتكرر بالترتيب: مربع، دائرة، مثلث. والألوان تتبادل: أسود، أبيض. الشكل السادس مثلث، ولونه أبيض لأن الخامس أسود.',{t:SEQ_T,fig:FG.seq([['square','s'],['circle','e'],['triangle','s'],['square','e'],['circle','s']].map(([t,f])=>FG.one(t,f)))}),
+Q(7,'ما الشكل الناقص؟',[['star','g'],['star','s'],['hexagon','g'],['diamond','e']].map(([t,f])=>fo(sh(t,f))),'في كل صف وفي كل عمود يظهر كل شكل (سداسي، نجمة، معيّن) مرة واحدة، وكل لون (رمادي، أسود، أبيض) مرة واحدة. الناقص في الصف الأخير هو النجمة، واللون الناقص هو الرمادي.',{t:MAT_T,fig:FG.matrix(latin(sh,['hexagon','star','diamond'],['g','s','e']))}),
+Q(7,'ما الشكل الناقص؟',[['square',5],['square',4],['square',6],['triangle',5]].map(([t,n])=>fo(FG.group(t,n,'g'))),'في كل صف يزيد عدد الأشكال واحدًا من خانة إلى التي تليها، والصف الأخير يبدأ بـ 3 مربعات ثم 4، فالناقص 5 مربعات.',{t:MAT_T,fig:FG.matrix([['circle',1],['circle',2],['circle',3],['triangle',2],['triangle',3],['triangle',4],['square',3],['square',4],null].map(c=>c&&FG.group(c[0],c[1],'g')))}),
+Q(7,'ما الشكل الناقص؟',[['h','d2'],['d1','h','d2'],['d1'],['h']].map(s=>fo(FG.lines(s))),'في كل صف نضع الشكلين الأول والثاني فوق بعضهما: الخط المتكرر فيهما يختفي، والخط غير المتكرر يبقى. في الصف الأخير يختفي القطر المشترك، ويبقى الخط الأفقي والقطر الآخر.',{t:MAT_T,fig:FG.matrix([['h','d1'],['h','v'],['d1','v'],['v','d2'],['d2','c'],['v','c'],['d1','h'],['d1','d2'],null].map(s=>s&&FG.lines(s)))}),
+T.oddMirror('P',4),
+Q(7,'أيّ الأشكال الآتية يختلف عن البقية؟',[['hexagon','square'],['circle','circle'],['square','square'],['triangle','triangle']].map(([o,i])=>fo(FG.nest(o,i))),'في كل شكل، الشكل الصغير في الداخل من نوع الشكل الكبير نفسه، إلا السداسي ففي داخله مربع.'),
+Q(7,'ما الشكل الذي يكمل العلاقة؟',[[4,'e'],[4,'s'],[3,'e'],[2,'e']].map(([n,f])=>fo(FG.group('circle',n,f))),'عدد الأشكال يتضاعف، ويتغيّر لونها (أبيض ↔ أسود). دائرتان سوداوان تصبحان 4 دوائر بيضاء.',{t:ANA_T,fig:FG.analogy(FG.group('triangle',1,'e'),FG.group('triangle',2,'s'),FG.group('circle',2,'s'))}),
+(()=>{const A=FG.pent('L',0),Cc=FG.pent('F',1);const o=[FG.ptf(Cc,'m'),FG.ptf(Cc,'rr'),FG.ptf(Cc,'r'),Cc];chk(o);return Q(7,'ما الشكل الذي يكمل العلاقة؟',o.map(x=>fo(FG.pdraw(x))),'الشكل الثاني هو صورة الشكل الأول في المرآة (يُعكس يمينًا ويسارًا)، فنعكس الشكل الثالث بالطريقة نفسها.',{t:ANA_T,fig:FG.analogy(FG.pdraw(A),FG.pdraw(FG.ptf(A,'m')),FG.pdraw(Cc))})})(),
+Q(7,'كل شكل يمثل عددًا. ما قيمة المربع؟',['4','6','2','8'],'من المعادلة الأولى: النجمة = 12 ÷ 3 = 4. ومن الثانية: الدائرة = 10 − 4 = 6. ومن الثالثة: المربع = 6 − 2 = 4.',{fig:FG.eqs([['star','+','star','+','star','=','12'],['star','+','circle','=','10'],['circle','−','square','=','2']])}),
+/* ---- الاستدلال العلمي والميكانيكي ---- */
+Q(8,'إذا دار الترس 1 عكس اتجاه عقارب الساعة كما في الرسم، فكيف يدور الترس 5؟',[DIR[0],DIR[1],'لا يدور','يدور مرة مع عقارب الساعة ومرة عكسها'],'الترسان المتعشّقان يدوران في اتجاهين متعاكسين، فالتروس ذات الأرقام الفردية (1، 3، 5) تدور في اتجاه واحد، والزوجية (2، 4) في الاتجاه المعاكس. إذن الترس 5 يدور مثل الترس 1: عكس عقارب الساعة.',{fig:FG.gearChain(5,false)}),
+Q(8,'ترسان متعشّقان؛ الكبير فيه 30 سنًّا والصغير فيه 10 أسنان. إذا دار الصغير 6 دورات، فكم دورة يدور الكبير؟',['دورتين','6 دورات','18 دورة','3 دورات'],'في 6 دورات تمرّ 6 × 10 = 60 سنًّا من الصغير على الكبير، والكبير يكمل دورته كل 30 سنًّا، فيدور 60 ÷ 30 = دورتين.',{fig:FG.gearPair(30,10,'30 سنًّا','10 أسنان')}),
+Q(8,'بكرتان يربطهما سير متقاطع، والبكرة 1 تدور مع عقارب الساعة. كيف تدور البكرة 2؟',[DIR[0],DIR[1],'لا تدور','تدور مرة مع عقارب الساعة ومرة عكسها'],'السير المتقاطع يعكس اتجاه الدوران، فإذا دارت البكرة 1 مع عقارب الساعة دارت البكرة 2 عكسها. أما السير المستقيم فيُبقي الاتجاه نفسه.',{fig:FG.belts(['x'],true)}),
+Q(8,'لوح متوازن على نقطة ارتكاز في منتصفه، وُضع عليه ثقل 6 كغ عند العلامة 2. ما الثقل الذي يجب وضعه عند العلامة 3 في الجهة الأخرى ليتوازن اللوح؟',['4 كغ','3 كغ','6 كغ','9 كغ'],'يتوازن اللوح عندما يتساوى (الثقل × البعد) في الجهتين: 6 × 2 = 12، فالثقل المطلوب عند البعد 3 هو 12 ÷ 3 = 4 كغ.',{fig:FG.lever([{side:'r',d:2,label:'6 كغ'},{side:'l',d:3,label:'؟',q:true}])}),
+Q(8,'أربع كرات متساوية في الحجم وُضعت في حوض ماء فاستقرت كما في الرسم. أيّ الكرات كثافتها أكبر؟',['الكرة 1','الكرة 2','الكرة 3','الكرة 4'],'الكرة الأكبر كثافة تغوص أكثر، والكرة 4 غاصت حتى القاع فهي الأكبر كثافة. أما الكرة 1 فتطفو أعلى من غيرها لأن كثافتها هي الأقل.',{fig:FG.tankBalls(),a:3}),
+Q(8,'تُستخدم بكرة ثابتة في أعلى سارية العلم لرفعه. ما فائدة هذه البكرة؟',['تغيّر اتجاه القوة، فنسحب الحبل إلى الأسفل فيرتفع العلم','تقلّل وزن العلم إلى النصف','تزيد سرعة الرياح حول العلم','تجعل السارية أقصر'],'البكرة الثابتة لا تقلّل القوة اللازمة، لكنها تغيّر اتجاهها؛ فنسحب الحبل إلى الأسفل وهو أسهل علينا، فيرتفع العلم إلى الأعلى.'),
+Q(8,'الميزانان متوازنان. كم دائرة تساوي النجمة في الوزن؟',['6','5','3','4'],'من الميزان (1): النجمة = مربعان. ومن الميزان (2): المربع = 3 دوائر. إذن النجمة = 2 × 3 = 6 دوائر.',{fig:FG.scales([[['square','square'],['star']],[['circle','circle','circle'],['square']]])}),
+Q(8,'وضع طالب قطعتي ثلج متساويتين، إحداهما في الشمس والأخرى في الظل، وسجّل الزمن حتى تذوب كل منهما. ماذا يريد أن يعرف؟',['أثر الحرارة في سرعة ذوبان الثلج','أثر حجم قطعة الثلج في ذوبانها','لون الثلج بعد ذوبانه','كمية الماء الناتجة من الثلج'],'العامل الوحيد الذي غيّره الطالب هو المكان (شمس أو ظل)، أي كمية الحرارة، وقاس زمن الذوبان، فهو يدرس أثر الحرارة في سرعة الذوبان. أما حجم القطعتين فمتساوٍ.'),
+Q(8,'في الصباح الباكر تكون الشمس في جهة الشرق. في أي جهة يقع ظل الشجرة؟',['الغرب','الشرق','الشمال','الجنوب'],'يتكوّن الظل في الجهة المعاكسة لمصدر الضوء؛ فإذا كانت الشمس في الشرق وقع الظل في الغرب.'),
+Q(8,'وُضعت ملعقة معدنية وأخرى خشبية في كوب شاي ساخن. ماذا يحدث بعد دقيقة؟',['تسخن الملعقة المعدنية أسرع لأن المعدن موصل جيد للحرارة','تسخن الملعقة الخشبية أسرع','تسخن الملعقتان بالسرعة نفسها','لا تسخن أيّ منهما'],'المعادن موصلة جيدة للحرارة فتنتقل فيها الحرارة بسرعة، أما الخشب فموصل رديء للحرارة، ولذلك تُصنع مقابض القدور من الخشب أو البلاستيك.')
+];
+return{name:'النموذج الثاني',passages:[
+ {title:'النخلة',text:'النخلة شجرةٌ مباركة عرفها العرب منذ آلاف السنين، وهي من أكثر الأشجار تحمّلًا للحرارة والجفاف؛ إذ تمتد جذورها عميقًا في الأرض بحثًا عن الماء. وتنتج النخلة الواحدة في الموسم عشرات الكيلوجرامات من التمر، وهو غذاء غني بالسكريات والألياف والمعادن، يمدّ الجسم بالطاقة بسرعة. ولم يكن الأجداد يتركون شيئًا من النخلة دون فائدة؛ فقد صنعوا من سعفها الحصير والسلال، ومن جذوعها سقوف البيوت، ومن ليفها الحبال. وتُعدّ واحة الأحساء من أكبر واحات النخيل في العالم.'},
+ {title:'النوم',text:'يظنّ بعض الناس أن النوم وقتٌ ضائع، لكن العلماء يؤكدون أنه ضروري لصحة الجسم والعقل. ففي أثناء النوم يرتّب الدماغ المعلومات التي تعلّمها الإنسان خلال يومه ويثبّتها في الذاكرة، ويُصلح الجسم خلاياه ويستعيد نشاطه. ويحتاج الطفل في سنّ الدراسة إلى ما بين تسع ساعات وإحدى عشرة ساعة من النوم كل ليلة. أما السهر الطويل أمام الشاشات فيُضعف التركيز، ويجعل الطالب سريع الغضب، وقد يؤثر في نتائجه الدراسية.'}
+],qs};
+}
+
+/* ================= النموذج الثالث ================= */
+function buildM3(){
+const FILL="اختر الكلمة المناسبة لإكمال الفراغ:",CTX="حدّد الكلمة التي لا يتناسب معناها مع سياق الجملة (الخطأ السياقي):";
+const DIR=['عكس اتجاه عقارب الساعة','مع اتجاه عقارب الساعة'];
+const arw=(r,f)=>FG.shape('arrow',50,50,30,f,r);
+const qs=[
+/* ---- التناظر اللفظي ---- */
+{s:0,q:"قاضٍ : محكمة",o:["صيدلي : صيدلية","مريض : دواء","مزارع : محصول","لاعب : كرة"],e:"المحكمة مكان عمل القاضي، والصيدلية مكان عمل الصيدلي (صاحب المهنة : مكان عمله)."},
+{s:0,q:"جوع : شبع",o:["تعب : راحة","نوم : سرير","أكل : طعام","مرض : طبيب"],e:"الشبع يُنهي الجوع، والراحة تُنهي التعب (حالة : الحالة التي تُنهيها)."},
+{s:0,q:"دقيقة : ثانية",o:["متر : سنتيمتر","كيلوجرام : طن","لتر : وزن","ساعة : يوم"],e:"الثانية وحدة أصغر من الدقيقة لقياس الزمن، والسنتيمتر وحدة أصغر من المتر لقياس الطول (وحدة : وحدة أصغر منها)."},
+{s:0,q:"غيمة : مطر",o:["نحلة : عسل","قمر : ليل","كأس : ماء","ورقة : شجرة"],e:"المطر يخرج من الغيمة، والعسل يخرج من النحلة (المصدر : ما يخرج منه)."},
+{s:0,q:"قلب : دم",o:["مضخة : ماء","رئة : صدر","مطبخ : طعام","معدة : جوع"],e:"القلب يضخّ الدم في الجسم، والمضخة تضخّ الماء في الأنابيب (أداة الضخ : ما تضخّه)."},
+{s:0,q:"كريم : بخيل",o:["أمين : خائن","صادق : مخلص","ذكي : عبقري","قوي : رياضي"],e:"الكريم عكس البخيل، والأمين عكس الخائن (تضاد)."},
+{s:0,q:"حرارة : ميزان حرارة",o:["وزن : ميزان","طول : قلم","صوت : أذن","ضوء : شمس"],e:"ميزان الحرارة يقيس الحرارة، والميزان يقيس الوزن (ما نقيسه : أداة قياسه)."},
+{s:0,q:"كلمة : جملة",o:["حرف : كلمة","قارئ : قصة","قلم : حبر","صوت : صدى"],e:"الجملة تتكوّن من كلمات، والكلمة تتكوّن من حروف (الجزء : الكل الذي يتكوّن منه)."},
+{s:0,q:"أسد : زئير",o:["حصان : صهيل","بقرة : حليب","كلب : وفاء","حمامة : سلام"],e:"الزئير صوت الأسد، والصهيل صوت الحصان (حيوان : صوته)."},
+{s:0,q:"مثلث : ثلاثة",o:["سداسي : ستة","دائرة : مركز","مستطيل : طول","خماسي : سبعة"],e:"للمثلث ثلاثة أضلاع، وللسداسي ستة أضلاع (الشكل : عدد أضلاعه)."},
+{s:0,q:"قمر : أرض",o:["أرض : شمس","شمس : نهار","نجم : سماء","مريخ : أحمر"],e:"القمر يدور حول الأرض، والأرض تدور حول الشمس (جرم : ما يدور حوله)."},
+{s:0,q:"كاتب : قلم",o:["جرّاح : مشرط","مريض : مستشفى","طاهٍ : طعام","مهندس : مبنى"],e:"القلم أداة الكاتب، والمشرط أداة الجرّاح (صاحب المهنة : أداته)."},
+/* ---- إكمال الجمل والمفردات ---- */
+{s:1,t:FILL,q:"من ........ في طلب العلم نال أعلى المراتب.",o:["جدَّ","كسلَ","توقّفَ","تردّدَ"],e:"نيل أعلى المراتب يكون بالجدّ والاجتهاد، كما يقول المثل: «من جدّ وجد»."},
+{s:1,t:FILL,q:"يجب أن نحافظ على الماء ........ أساس الحياة.",o:["لأنه","لكنه","حتى","رغم أنه"],e:"الجملة الثانية تذكر سبب المحافظة على الماء، فنستخدم أداة التعليل «لأنه»."},
+{s:1,t:FILL,q:"لم يذاكر سعدٌ دروسه، ........ حصل على درجة ضعيفة.",o:["لذلك","لكنه","مع أنه","بينما"],e:"الدرجة الضعيفة نتيجة لعدم المذاكرة، فنستخدم «لذلك» التي تربط السبب بنتيجته."},
+{s:1,t:FILL,q:"كان الجو ........ فلبسنا الملابس الخفيفة وذهبنا إلى البحر.",o:["حارًّا","باردًا","ممطرًا","عاصفًا"],e:"لبس الملابس الخفيفة والذهاب إلى البحر يناسبان الجو الحار."},
+{s:1,q:"معنى كلمة «ثاقب» في عبارة «رأيٌ ثاقب»:",o:["صائب نافذ","خاطئ","ضعيف","قديم"],e:"الرأي الثاقب هو الرأي الصائب الذي ينفذ إلى حقيقة الأمر."},
+{s:1,q:"عكس كلمة «الضئيل» هو:",o:["الكبير","الصغير","النحيف","القليل"],e:"الضئيل هو الصغير القليل، وعكسه الكبير."},
+{s:1,q:"أيّ الكلمات الآتية لا تنتمي إلى المجموعة؟",o:["كيلوجرام","ميل","ذراع","شبر"],e:"الميل والذراع والشبر وحدات لقياس الطول، أما الكيلوجرام فوحدة لقياس الوزن."},
+{s:1,q:"أيّ الكلمات الآتية لا تنتمي إلى المجموعة؟",o:["جزر","تفاح","موز","عنب"],e:"التفاح والموز والعنب فواكه، أما الجزر فمن الخضراوات."},
+{s:1,t:CTX,q:"اقترب الصيفُ فتساقطت الثلوج بغزارة.",o:["الصيف","اقترب","تساقطت","بغزارة"],e:"الثلوج تتساقط في الشتاء لا في الصيف، والصواب «اقترب الشتاء»."},
+{s:1,t:CTX,q:"فاز فريقُنا في المباراة فخرج اللاعبون حزينين.",o:["حزينين","فاز","المباراة","خرج"],e:"الفوز يُفرح اللاعبين، والصواب «فرحين»."},
+/* ---- الاستيعاب المقروء ---- */
+{s:2,p:1,q:"يستطيع الصقر رؤية فريسته من مسافات بعيدة لأنه:",o:["يتمتع ببصر حادّ","سريع جدًّا","يعيش في الصحراء","مدرَّب على الصيد"],e:"ذكر النص أن الصقر يتميّز ببصر حادّ يفوق بصر الإنسان عدة مرات، فيرى فريسته من بعيد."},
+{s:2,p:1,q:"أول خطوة في تدريب الصقر هي:",o:["تعويده على الجلوس على يد الصقّار","تدريبه على الصيد","تعليمه العودة عند سماع النداء","إطلاقه في الصحراء"],e:"ذكر النص أن الصقّار «يبدأ» بتعويد الصقر على الجلوس على يده، ثم يدرّبه على العودة عند النداء."},
+{s:2,p:1,q:"يحتاج تدريب الصقر إلى:",o:["الصبر والخبرة","القوة والسرعة","المال الكثير","مكان واسع فقط"],e:"قال النص: «ويحتاج تدريب الصقر إلى صبرٍ وخبرة»."},
+{s:2,p:1,q:"نستنتج من النص أن الشاهين عند انقضاضه:",o:["أسرع من سيارة تسير بسرعة 120 كم في الساعة","أبطأ أنواع الصقور","لا يستطيع صيد فريسته","أقل بصرًا من الإنسان"],e:"سرعة الشاهين عند الانقضاض تزيد على 300 كم في الساعة، وهي أكبر بكثير من 120 كم في الساعة."},
+{s:2,p:1,q:"معنى كلمة «الانقضاض» في النص:",o:["الهجوم السريع من أعلى","الطيران البطيء","الهروب","الاختباء"],e:"انقضّ الصقر على فريسته: نزل عليها من الأعلى بسرعة."},
+{s:2,p:2,q:"المقصود بإعادة التدوير:",o:["تحويل النفايات إلى مواد جديدة صالحة للاستعمال","حرق النفايات","دفن النفايات في الأرض","جمع النفايات في مكان واحد"],e:"عرّف النص إعادة التدوير بأنها تحويل النفايات إلى مواد جديدة صالحة للاستعمال."},
+{s:2,p:2,q:"من فوائد إعادة تدوير الورق:",o:["تقليل عدد الأشجار التي تُقطع","زيادة كمية النفايات","صناعة علب الألمنيوم","توفير البلاستيك"],e:"ذكر النص أن صناعة الورق من الورق المستعمل تقلّل عدد الأشجار التي تُقطع."},
+{s:2,p:2,q:"ما الذي يجب فعله في المنزل لتنجح إعادة التدوير؟",o:["فرز النفايات حسب نوعها","حرق الورق المستعمل","رمي النفايات كلها في كيس واحد","تقليل شرب الماء"],e:"ذكر النص أنه لا بدّ من فرز النفايات في المنزل: الورق في مكان، والبلاستيك في مكان، والمعادن في مكان آخر."},
+{s:2,p:2,q:"صناعة علب الألمنيوم من علب مستعملة:",o:["تحتاج طاقة أقل من صنعها من المادة الخام","تحتاج طاقة أكثر من صنعها من المادة الخام","أمر مستحيل","تحتاج إلى قطع الأشجار"],e:"ذكر النص أن العلب المستعملة تُصهر وتُصنع منها علب جديدة بطاقة أقل بكثير من صنعها من المادة الخام."},
+{s:2,p:2,q:"أنسب عنوان للنص:",o:["إعادة التدوير تحمي بيئتنا","صناعة الألمنيوم","أنواع الأشجار","المدن الكبيرة"],e:"النص كله عن إعادة التدوير وفوائدها وطريقة نجاحها، أما بقية العناوين فجزئية أو غير مذكورة."},
+/* ---- المتتابعات ---- */
+{s:3,q:"5 ، 11 ، 23 ، 47 ، ؟",o:["95","94","96","71"],e:"نضرب في 2 ثم نضيف 1: 47 × 2 + 1 = 95."},
+{s:3,q:"2 ، 4 ، 8 ، 14 ، 22 ، ؟",o:["32","30","34","44"],e:"نضيف 2 ثم 4 ثم 6 ثم 8 ثم 10: 22 + 10 = 32."},
+{s:3,q:"0 ، 3 ، 8 ، 15 ، 24 ، ؟",o:["35","33","36","48"],e:"كل عدد أقل من مربع ترتيبه بواحد: 1−1، 4−1، 9−1، 16−1، 25−1، ثم 36 − 1 = 35."},
+{s:3,q:"3 ، 4 ، 7 ، 11 ، 18 ، ؟",o:["29","25","28","36"],e:"كل عدد هو مجموع العددين قبله: 11 + 18 = 29."},
+{s:3,q:"96 ، 48 ، 24 ، 12 ، ؟",o:["6","4","8","3"],e:"كل عدد نصف العدد الذي قبله: 12 ÷ 2 = 6."},
+{s:3,q:"2 ، 6 ، 3 ، 9 ، 6 ، 18 ، ؟",o:["15","54","12","21"],e:"نضرب في 3 ثم نطرح 3 بالتناوب: 2×3=6، 6−3=3، 3×3=9، 9−3=6، 6×3=18، ثم 18 − 3 = 15."},
+{s:3,q:"10 ، 20 ، 15 ، 30 ، 25 ، ؟",o:["50","35","40","45"],e:"نضرب في 2 ثم نطرح 5 بالتناوب: 25 × 2 = 50."},
+{s:3,q:"11 ، 13 ، 17 ، 19 ، 23 ، ؟",o:["29","25","27","31"],e:"هذه أعداد أولية متتالية، والعدد الأولي بعد 23 هو 29 (لأن 25 و27 ليسا أوليين)."},
+{s:3,q:"2 ، 3 ، 5 ، 9 ، 17 ، ؟",o:["33","25","34","32"],e:"نضيف 1 ثم 2 ثم 4 ثم 8 ثم 16 (كل زيادة ضعف التي قبلها): 17 + 16 = 33."},
+{s:3,t:"ما الحرف الذي يكمل المتتابعة؟",q:"ب ، ث ، ح ، د ، ؟",o:["ر","ذ","ز","س"],e:"نتخطى حرفًا واحدًا في كل مرة حسب الترتيب الهجائي: ب (ت) ث (ج) ح (خ) د (ذ) ر."},
+/* ---- الاستدلال الرياضي ---- */
+{s:4,q:"إذا كان ثمن 4 علب عصير 10 ريالات، فكم ثمن 10 علب من النوع نفسه؟",o:["25 ريالًا","40 ريالًا","20 ريالًا","30 ريالًا"],e:"ثمن العلبة 10 ÷ 4 = 2.5 ريال، و 10 × 2.5 = 25 ريالًا."},
+{s:4,q:"مجموع عمري أخوين 25 سنة، والفرق بين عمريهما 5 سنوات. كم عمر الأصغر؟",o:["10 سنوات","15 سنة","12 سنة","5 سنوات"],e:"(25 − 5) ÷ 2 = 10 سنوات عمر الأصغر، والأكبر 15 سنة."},
+{s:4,q:"ما نصف ربع العدد 80؟",o:["10","20","40","5"],e:"ربع 80 = 20، ونصف 20 = 10."},
+{s:4,q:"مكعب طول ضلعه 3 سم. ما حجمه؟",o:["27 سم³","9 سم³","18 سم³","54 سم³"],e:"حجم المكعب = الطول × العرض × الارتفاع = 3 × 3 × 3 = 27 سم³."},
+{s:4,q:"قطع عدّاء 400 متر في 80 ثانية. كم مترًا يقطع في الثانية الواحدة؟",o:["5 أمتار","4 أمتار","8 أمتار","50 مترًا"],e:"400 ÷ 80 = 5 أمتار في الثانية."},
+{s:4,q:"في فصل 28 طالبًا، ثلاثة أرباعهم يحبون الرياضيات. كم طالبًا لا يحبونها؟",o:["7","21","4","14"],e:"ربع الطلاب لا يحبونها: 28 ÷ 4 = 7 طلاب."},
+{s:4,q:"ما العدد الذي يقع في منتصف المسافة بين 18 و42؟",o:["30","24","32","28"],e:"(18 + 42) ÷ 2 = 60 ÷ 2 = 30."},
+{s:4,q:"في مزرعة دجاج وأبقار، عدد رؤوسها 10 وعدد أرجلها 28. كم عدد الأبقار؟",o:["4","6","3","5"],e:"لو كانت كلها دجاجًا لكان عدد الأرجل 20. الأرجل الزائدة 28 − 20 = 8، وكل بقرة تزيد رجلين، فعدد الأبقار 8 ÷ 2 = 4."},
+{s:4,q:"مستطيل مساحته 48 سم² وعرضه 6 سم. ما محيطه؟",o:["28 سم","14 سم","48 سم","24 سم"],e:"الطول = 48 ÷ 6 = 8 سم، والمحيط = 2 × (8 + 6) = 28 سم."},
+{s:4,q:"بدأت مباراة الساعة 4:50 مساءً وانتهت الساعة 6:35 مساءً. كم استغرقت؟",o:["ساعة و45 دقيقة","ساعتين و15 دقيقة","ساعة و35 دقيقة","ساعتين و45 دقيقة"],e:"من 4:50 إلى 5:50 ساعة، ومن 5:50 إلى 6:35 خمس وأربعون دقيقة، فالمجموع ساعة و45 دقيقة."},
+{s:4,q:"أيّ الكسور الآتية هو الأكبر؟",o:["3/4","2/3","5/8","7/12"],e:"نوحّد المقامات إلى 24: 3/4 = 18/24، و2/3 = 16/24، و5/8 = 15/24، و7/12 = 14/24، فأكبرها 3/4."},
+{s:4,q:"عدد إذا قسمناه على 5 كان الناتج 7 والباقي 3. ما العدد؟",o:["38","35","32","40"],e:"العدد = 5 × 7 + 3 = 38."},
+/* ---- الاستدلال المنطقي ---- */
+{s:5,q:"كل من يحضر الدورة يحصل على شهادة، وماجد حصل على شهادة. أيّ العبارات الآتية صحيحة؟",o:["لا يمكن الجزم بأن ماجدًا حضر الدورة","ماجد حضر الدورة بالتأكيد","ماجد لم يحضر الدورة","كل من لديه شهادة حضر الدورة"],e:"العبارة تقول إن الحضور يؤدي إلى الشهادة، لكنها لا تقول إن الشهادة لا تأتي إلا من الدورة؛ فربما حصل ماجد على شهادته من مكان آخر."},
+{s:5,q:"محمد أكبر من علي، وعلي أكبر من حسن، وزيد أصغر من حسن. من الثاني في العمر من الأكبر؟",o:["علي","محمد","حسن","زيد"],e:"الترتيب من الأكبر: محمد، علي، حسن، زيد. فالثاني هو علي."},
+{s:5,q:"إذا كان أول يوم في الشهر يوم الأحد، فما يوم الخامس والعشرين من الشهر نفسه؟",o:["الأربعاء","الثلاثاء","الخميس","الأحد"],e:"أيام الأحد في الشهر: 1، 8، 15، 22. واليوم 25 بعد 22 بثلاثة أيام: الإثنين 23، الثلاثاء 24، الأربعاء 25."},
+{s:5,q:"في كيس 5 كرات حمراء و5 كرات زرقاء. ما أقل عدد من الكرات يجب سحبه دون نظر للتأكد من الحصول على كرتين حمراوين؟",o:["7","2","3","6"],e:"في أسوأ الأحوال نسحب الكرات الزرقاء الخمس أولًا، ثم نحتاج كرتين حمراوين: 5 + 2 = 7."},
+{s:5,q:"إذا كان (س) ضعف (ص)، و(ص) ضعف (ع)، و(ع) = 3، فما قيمة (س)؟",o:["12","6","9","18"],e:"ص = 2 × 3 = 6، و س = 2 × 6 = 12."},
+{s:5,q:"قُطعت خشبة طويلة إلى 5 قطع. كم مرة قُطعت؟",o:["4","5","6","3"],e:"كل قطع يزيد عدد القطع واحدة: قطع واحد يعطي قطعتين، فنحتاج 4 قطوع للحصول على 5 قطع."},
+{s:5,q:"ضفدع في قاع بئر عمقها 10 أمتار، يصعد 3 أمتار في النهار وينزلق مترين في الليل. في أيّ يوم يخرج من البئر؟",o:["اليوم الثامن","اليوم العاشر","اليوم السابع","اليوم التاسع"],e:"في كل يوم كامل يرتفع مترًا واحدًا، فبعد 7 أيام يكون على ارتفاع 7 أمتار. وفي نهار اليوم الثامن يصعد 3 أمتار فيصل إلى 10 أمتار ويخرج قبل أن ينزلق."},
+{s:5,q:"الشريط البرتقالي أطول من الأخضر، والأزرق أقصر من الأخضر، والأحمر أطول من البرتقالي. ما الشريط الثالث في الطول من الأطول؟",o:["الأخضر","البرتقالي","الأحمر","الأزرق"],e:"الترتيب من الأطول: الأحمر، البرتقالي، الأخضر، الأزرق. فالثالث هو الأخضر."},
+/* ---- الإدراك المكاني ---- */
+T.mirror('Y',0),
+T.rotate('F',2,'rrr','ربع دورة (90°) عكس عقارب الساعة'),
+T.paper(['V','H'],[[0.38,0.62]]),
+T.paper(['H'],[[0.2,0.65],[0.7,0.85]]),
+T.netValid([[0,0],[1,0],[2,0],[2,1],[3,1],[4,1]],[[[0,0],[1,0],[2,0],[3,0],[0,1],[3,1]],[[0,0],[1,0],[0,1],[1,1],[2,1],[3,1]],[[0,0],[1,0],[2,0],[3,0],[4,0],[2,1]]]),
+T.netOpp([[1,0],[0,1],[1,1],[2,1],[3,1],[2,2]],[1,2,3,4,5,6],0,[2,3,4],'الصف 2، 3، 4، 5 يلتفّ حول المكعب فيكوّن جوانبه الأربعة، أما الوجهان 1 و6 فيكونان الغطاءين: أحدهما في الأعلى والآخر في الأسفل، فهما متقابلان.'),
+T.isoCount([[2,2,1],[2,1,1],[1,1,0]],[9,10,12]),
+T.isoFill([[3,3,3],[3,2,2],[2,2,1]],[5,7,21]),
+Q(6,'كم مستطيلًا (بما فيها المربعات) يوجد في الشكل؟',['18','6','12','15'],'نعدّها حسب الحجم: 6 مربعات صغيرة، و4 من مربعين متجاورين أفقيًّا، و2 من ثلاثة مربعات أفقية، و3 من مربعين رأسيين، و2 من أربعة مربعات، و1 هو الشكل كله. المجموع 18.',{fig:FG.gridFig(2,3)}),
+T.mirrorClock([10,15],'1:45',['10:15','2:45','1:15']),
+{s:6,q:"مكعب كبير طُليت جميع أوجهه، ثم قُطّع إلى 27 مكعبًا صغيرًا متساويًا. كم مكعبًا صغيرًا طُلي له وجه واحد فقط؟",o:["6","8","12","1"],e:"المكعبات المطلية من وجه واحد فقط تقع في منتصف كل وجه، وللمكعب 6 أوجه، في منتصف كل وجه مكعب واحد: 6 مكعبات."},
+{s:6,q:"ما قياس الزاوية الصغرى بين عقربي الساعة عندما تشير إلى الرابعة تمامًا؟",o:["120°","90°","100°","150°"],e:"بين كل رقمين على الساعة 30°، وبين 12 و4 أربعة أقسام: 4 × 30° = 120°."},
+/* ---- المرونة العقلية ---- */
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',[90,315,0,180].map(r=>fo(FG.one('arrow','s',r))),'مقدار دوران السهم يزيد في كل خطوة: 45° ثم 90° ثم 135°، فالدوران التالي 180° (نصف دورة). السهم يشير إلى اليسار، فبعد نصف دورة يشير إلى اليمين.',{t:SEQ_T,fig:FG.seq([0,45,135,270].map(r=>FG.one('arrow','s',r)))}),
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',[[0,2],[0,0],[1,2],[2,0]].map(([a,b])=>fo(FG.quad(a,b))),'المربع الأسود ينتقل ربعًا واحدًا عكس عقارب الساعة في كل خطوة، والنقطة تنتقل ربعًا واحدًا مع عقارب الساعة. فالتالي: المربع الأسود في الأعلى يسارًا، والنقطة في الأسفل يمينًا.',{t:SEQ_T,fig:FG.seq([[0,2],[3,3],[2,0],[1,1]].map(([a,b])=>FG.quad(a,b)))}),
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',[['hexagon','e'],['hexagon','s'],['pentagon','e'],['circle','e']].map(([t,f])=>fo(FG.one(t,f))),'عدد الأضلاع يزيد ضلعًا في كل خطوة (3، 4، 5، ثم 6)، واللون يتبادل بين الأسود والأبيض؛ فالتالي شكل سداسي أبيض.',{t:SEQ_T,fig:FG.seq([['triangle','s'],['square','e'],['pentagon','s']].map(([t,f])=>FG.one(t,f)))}),
+Q(7,'ما الشكل الذي يأتي مكان علامة الاستفهام؟',[FG.triDots(4),FG.gridDots(3,3),FG.triDots(5),FG.gridDots(2,4)].map(fo),'في كل خطوة يُضاف صف جديد من النقاط يزيد نقطة واحدة: 1، ثم 1 + 2 = 3، ثم 3 + 3 = 6، ثم 6 + 4 = 10 نقاط على شكل مثلث.',{t:SEQ_T,fig:FG.seq([1,2,3].map(k=>FG.triDots(k)))}),
+Q(7,'ما الشكل الناقص؟',[[90,'s'],[90,'e'],[0,'s'],[180,'g']].map(([r,f])=>fo(arw(r,f))),'في كل صف وفي كل عمود يظهر كل اتجاه للسهم (أعلى، يمين، أسفل) مرة واحدة، وكل لون مرة واحدة. الناقص سهم يشير إلى اليمين لونه أسود.',{t:MAT_T,fig:FG.matrix(latin(arw,[0,90,180],['s','e','g']))}),
+Q(7,'ما الشكل الناقص؟',[['square',4],['square',3],['square',5],['circle',4]].map(([t,n])=>fo(FG.group(t,n,'g'))),'في كل صف، عدد الأشكال في الخانة الثالثة يساوي مجموع عدد الأشكال في الخانتين الأولى والثانية: 1 + 3 = 4 مربعات.',{t:MAT_T,fig:FG.matrix([['circle',1],['circle',2],['circle',3],['triangle',2],['triangle',2],['triangle',4],['square',1],['square',3],null].map(c=>c&&FG.group(c[0],c[1],'g')))}),
+Q(7,'ما الشكل الناقص؟',[['v','d2'],['h','v','d2'],['h'],['v','d1']].map(s=>fo(FG.lines(s))),'في كل صف نحذف من الشكل الأول الخطوط التي في الشكل الثاني، فيبقى الشكل الثالث. في الصف الأخير نحذف الخط الأفقي، فيبقى الخط الرأسي والقطر.',{t:MAT_T,fig:FG.matrix([['h','v','d1'],['v'],['h','d1'],['d1','d2','c'],['d2'],['d1','c'],['h','v','d2'],['h'],null].map(s=>s&&FG.lines(s)))}),
+T.oddMirror('Y',2),
+Q(7,'أيّ الأشكال الآتية يختلف عن البقية؟',[[3,2],[2,2],[3,3],[1,1]].map(([b,w])=>fo(FG.bw(b,w))),'في كل شكل عدد النقاط السوداء يساوي عدد النقاط البيضاء، إلا هذا الشكل ففيه 3 نقاط سوداء ونقطتان بيضاوان.'),
+Q(7,'ما الشكل الذي يكمل العلاقة؟',[[3,270],[3,90],[1,270],[2,270]].map(([p,r])=>fo(FG.cornerShape('square','triangle',p,r))),'الشكل كله يدور نصف دورة (180°): الشكل الصغير ينتقل إلى الركن المقابل وينقلب اتجاهه. المثلث في الأعلى يمينًا ويشير إلى اليمين، فيصبح في الأسفل يسارًا ويشير إلى اليسار.',{t:ANA_T,fig:FG.analogy(FG.cornerShape('square','arrow',0,0),FG.cornerShape('square','arrow',2,180),FG.cornerShape('square','triangle',1,90))}),
+Q(7,'ما الشكل الذي يكمل العلاقة؟',[['circle',5],['circle',4],['circle',6],['triangle',5]].map(([t,n])=>fo(FG.group(t,n,'s'))),'عدد الدوائر في الشكل الثاني يساوي عدد أضلاع الشكل الأول: المثلث له 3 أضلاع فجاءت 3 دوائر، والخماسي له 5 أضلاع فتأتي 5 دوائر.',{t:ANA_T,fig:FG.analogy(FG.one('triangle','e'),FG.group('circle',3,'s'),FG.one('pentagon','e'))}),
+Q(7,'كل شكل يمثل عددًا. ما قيمة المثلث؟',['3','5','7','2'],'من المعادلة الأولى: المربع = 15 ÷ 3 = 5. ومن الثانية: الدائرة = 12 − 5 = 7. ومن الثالثة: المثلث + 7 = 5 + 5 = 10، فالمثلث = 3.',{fig:FG.eqs([['square','+','square','+','square','=','15'],['circle','+','square','=','12'],['triangle','+','circle','=','square','+','square']])}),
+/* ---- الاستدلال العلمي والميكانيكي ---- */
+Q(8,'ثلاثة تروس متعشّقة، كل ترس منها يلامس الترسين الآخرين كما في الرسم. ماذا يحدث إذا حاولنا تدوير الترس 1 مع عقارب الساعة؟',['لا تستطيع التروس الدوران','يدور الترسان 2 و3 مع عقارب الساعة','يدور الترسان 2 و3 عكس عقارب الساعة','يدور الترس 2 فقط'],'الترس 1 يدير الترس 2 عكس عقارب الساعة، والترس 2 يدير الترس 3 مع عقارب الساعة، لكن الترس 3 يلامس الترس 1 أيضًا فيجب أن يدور عكسه. لا يمكن أن يدور الترس 3 في الاتجاهين معًا، فتتوقف التروس كلها.',{fig:FG.gearLoop()}),
+Q(8,'إذا دار الترس 1 دورة كاملة مع عقارب الساعة، فكيف يدور الترس 3؟',['دورة كاملة مع عقارب الساعة','دورة كاملة عكس عقارب الساعة','3 دورات مع عقارب الساعة','ثلث دورة عكس عقارب الساعة'],'الترس 2 يدور عكس الترس 1، والترس 3 يدور عكس الترس 2، أي مع عقارب الساعة. وبما أن للترسين 1 و3 العدد نفسه من الأسنان (12)، فإن الترس 3 يدور دورة كاملة. الترس الكبير في الوسط لا يغيّر عدد الدورات.',{fig:FG.gearIdler()}),
+Q(8,'البكرة 1 تدور مع عقارب الساعة، وكل بكرتين متجاورتين يربطهما سير متقاطع. كيف تدور البكرة 3؟',[DIR[1],DIR[0],'لا تدور','تدور مرة مع عقارب الساعة ومرة عكسها'],'كل سير متقاطع يعكس الاتجاه: البكرة 2 تدور عكس عقارب الساعة، ثم يعكسها السير الثاني فتدور البكرة 3 مع عقارب الساعة.',{fig:FG.belts(['x','x'],true)}),
+Q(8,'لوح متوازن على نقطة ارتكاز في منتصفه، وُضع عليه ثقلان كما في الرسم. ما الثقل الذي يجب وضعه عند العلامة 2 في الجهة الأخرى ليتوازن اللوح؟',['5 كغ','3 كغ','4 كغ','6 كغ'],'في الجهة اليسرى: (2 × 3) + (1 × 4) = 6 + 4 = 10. فالثقل المطلوب عند البعد 2 هو 10 ÷ 2 = 5 كغ.',{fig:FG.lever([{side:'l',d:3,label:'2 كغ'},{side:'l',d:4,label:'1 كغ'},{side:'r',d:2,label:'؟',q:true}])}),
+Q(8,'أيّ الأدوات الآتية تعمل عمل الرافعة؟',['المقص','المسطرة','الكأس','الكرة'],'المقص يتكوّن من رافعتين تدوران حول نقطة ارتكاز هي المسمار الذي يجمعهما؛ نضغط على المقبضين فتتحرك الشفرتان وتقطعان. أما الأدوات الأخرى فليس لها نقطة ارتكاز تدور حولها.'),
+Q(8,'لماذا يطفو الثلج فوق سطح الماء؟',['لأن كثافته أقل من كثافة الماء','لأنه أبرد من الماء','لأنه صلب والماء سائل','لأنه أثقل من الماء'],'الأجسام التي كثافتها أقل من كثافة الماء تطفو فوقه. والماء عندما يتجمد يتمدد فتقلّ كثافته، ولذلك يطفو الثلج.'),
+Q(8,'الميزانان متوازنان. كم دائرة تساوي المثلث في الوزن؟',['5','6','4','3'],'من الميزان (1): المربع = 3 دوائر، فالمربعان = 6 دوائر. ومن الميزان (2): المثلث + دائرة = مربعان = 6 دوائر، إذن المثلث = 6 − 1 = 5 دوائر.',{fig:FG.scales([[['circle','circle','circle'],['square']],[['square','square'],['triangle','circle']]])}),
+Q(8,'أراد طالب أن يعرف أيّ أنواع التربة يحتفظ بالماء أكثر، فجرّب ثلاثة أنواع من التربة. ما الذي يجب أن يكون متساويًا في التجارب الثلاث؟',['كمية التربة وكمية الماء المسكوب','نوع التربة','لا يلزم أن يتساوى شيء','لون الوعاء فقط'],'العامل الذي نغيّره هو نوع التربة فقط، أما بقية العوامل مثل كمية التربة وكمية الماء فيجب أن تتساوى حتى تكون المقارنة عادلة.'),
+Q(8,'سجّل طالب طول نبتة في نهاية كل أسبوع كما في الجدول. إذا استمر النمو بالمعدل نفسه، فكم يكون طولها في نهاية الأسبوع السادس؟',['12 سم','10 سم','16 سم','14 سم'],'النبتة تطول 2 سم كل أسبوع. من الأسبوع الرابع (8 سم) إلى الأسبوع السادس أسبوعان، فتزيد 4 سم: 8 + 4 = 12 سم.',{fig:FG.table(['الأسبوع','1','2','3','4','6'],[['طول النبتة (سم)','2','4','6','8','؟']])}),
+Q(8,'وُضع مغناطيسان بحيث يقابل القطبُ الشمالي لأحدهما القطبَ الشمالي للآخر. ماذا يحدث؟',['يتنافران (يبتعد أحدهما عن الآخر)','يتجاذبان (يقترب أحدهما من الآخر)','لا يحدث شيء','يفقدان مغناطيسيتهما'],'الأقطاب المتشابهة تتنافر، والأقطاب المختلفة تتجاذب.')
+];
+return{name:'النموذج الثالث',passages:[
+ {title:'الصقر',text:'الصيد بالصقور هواية عربية قديمة ما زالت تحظى باهتمام كبير في المملكة العربية السعودية. ويتميّز الصقر ببصرٍ حادّ يفوق بصر الإنسان عدة مرات، فيستطيع رؤية فريسته من مسافات بعيدة جدًّا. ويحتاج تدريب الصقر إلى صبرٍ وخبرة؛ إذ يبدأ الصقّار بتعويده على الجلوس على يده، ثم يدرّبه على العودة إليه عند سماع ندائه. ومن أشهر أنواع الصقور: الحرّ والشاهين، ويُعدّ الشاهين من أسرع الكائنات الحية، إذ تزيد سرعته عند الانقضاض على فريسته على ثلاثمئة كيلومتر في الساعة.'},
+ {title:'إعادة التدوير',text:'تنتج المدن كمياتٍ هائلةً من النفايات كل يوم، ويمكن الاستفادة من كثيرٍ منها بإعادة تدويرها؛ أي تحويلها إلى موادّ جديدة صالحة للاستعمال. فالورق المستعمل يمكن أن يُصنع منه ورق جديد، فيقلّ عدد الأشجار التي تُقطع، وعلب الألمنيوم المستعملة تُصهر وتُصنع منها علبٌ جديدة بطاقةٍ أقل بكثير من صنعها من المادة الخام. ولكي تنجح إعادة التدوير لا بدّ أن نفرز النفايات في المنزل، فنضع الورق في مكان، والبلاستيك في مكان، والمعادن في مكان آخر.'}
+],qs};
+}
+
+const BUILDERS=[buildM1,buildM2,buildM3];
+
+</script>
+<script>
+const MODELS=BUILDERS.map((b,i)=>b?prepModel(b(),i+1):null);
+const KEYS=["أ","ب","ج","د"];
+const $=id=>document.getElementById(id);
+const SKEY="mawhiba-train-v1";
+let M=null,mi=-1,ans=[],cur=0,elapsed=0,t0=0,tick=null,student="",chosen=-1,filterWrong=false;
+const fmt=s=>{const m=Math.floor(s/60),x=s%60;return String(m).padStart(2,"0")+":"+String(x).padStart(2,"0")};
+const show=id=>{["start","quiz","result"].forEach(k=>$(k).hidden=k!==id);window.scrollTo(0,0)};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const isFig=o=>typeof o==="object";
+const txt=o=>/[\u0600-\u06FF]/.test(o)?esc(o):`<bdi dir="ltr">${esc(o)}</bdi>`;
+function save(){try{localStorage.setItem(SKEY,JSON.stringify({mi,student,ans,cur,elapsed:secs()}))}catch(e){}}
+function load(){try{return JSON.parse(localStorage.getItem(SKEY)||"null")}catch(e){return null}}
+function clearSave(){try{localStorage.removeItem(SKEY)}catch(e){}}
+const secs=()=>elapsed+Math.round((Date.now()-t0)/1000);
+
+function buildStart(){
+  $("secsList").innerHTML=SECTIONS.map(s=>`<li>${s}</li>`).join("");
+  $("models").innerHTML=MODELS.map((m,i)=>`<button class="model" id="mdl${i}" ${m?"":"disabled"}><b>${["النموذج الأول","النموذج الثاني","النموذج الثالث"][i]}</b><span>${m?"96 سؤالًا":"قيد الإعداد"}</span></button>`).join("");
+  MODELS.forEach((m,i)=>{if(m)$("mdl"+i).onclick=()=>{chosen=i;MODELS.forEach((_,k)=>$("mdl"+k).classList.toggle("sel",k===i))}});
+  const first=MODELS.findIndex(Boolean);if(chosen<0&&first>=0)$("mdl"+first).click();
+  const sv=load();
+  if(sv&&MODELS[sv.mi]&&Array.isArray(sv.ans)&&sv.ans.length===MODELS[sv.mi].qs.length){
+    const done=sv.ans.filter(a=>a!==null).length;
+    $("resumeMsg").textContent=`يوجد اختبار لم يكتمل للطالب «${sv.student}» في ${MODELS[sv.mi].name}، أجاب فيه عن ${done} من 96 سؤالًا.`;
+    $("resume").hidden=false;
+  }else $("resume").hidden=true;
+}
+function buildNav(){
+  const box=$("navsecs");box.innerHTML="";
+  SECTIONS.forEach((name,s)=>{
+    const idx=M.qs.map((q,i)=>q.s===s?i:-1).filter(i=>i>=0);if(!idx.length)return;
+    const d=document.createElement("div");d.className="navsec";d.innerHTML=`<span class="nl">${name}</span><div class="navgrid"></div>`;
+    idx.forEach(i=>{const b=document.createElement("button");b.className="nav-dot";b.textContent=i+1;b.id="nd"+i;b.setAttribute("aria-label","السؤال "+(i+1));b.onclick=()=>{cur=i;render();$("quiz").scrollIntoView({block:"start"})};d.lastChild.appendChild(b)});
+    box.appendChild(d);
+  });
+}
+function begin(){
+  $("whoName").textContent=student;$("whoModel").textContent=M.name;$("qTot").textContent=M.qs.length;
+  buildNav();render();show("quiz");$("confirm").hidden=true;
+  t0=Date.now();clearInterval(tick);$("timer").textContent=fmt(elapsed);
+  tick=setInterval(()=>{$("timer").textContent=fmt(secs())},1000);
+}
+function render(){
+  const q=M.qs[cur];
+  $("qNum").textContent=cur+1;
+  $("secName").textContent=SECTIONS[q.s];
+  $("passage").hidden=!q.p;if(q.p){const P=M.passages[q.p-1];$("passage").innerHTML=`<b>اقرأ النص ثم أجب: «${esc(P.title)}»</b>${esc(P.text)}`}
+  const stem=q.t||STEMS[q.s]||"";$("stem").textContent=stem;$("stem").hidden=!stem;
+  $("fig").hidden=!q.fig;$("fig").innerHTML=q.fig||"";
+  $("qText").textContent=q.q;$("qText").className="q"+((q.s===0||q.s===3)?" big":"");
+  const box=$("opts");box.innerHTML="";const figs=q.o.every(isFig);box.className="opts"+(figs?" figs":"");
+  q.o.forEach((o,i)=>{const b=document.createElement("button");b.className="opt"+(isFig(o)?" fig":"")+(ans[cur]===i?" sel":"");
+    b.setAttribute("aria-label","الخيار "+KEYS[i]);
+    b.innerHTML=`<span class="k">${KEYS[i]}</span>`+(isFig(o)?`<span class="ov">${o.f}</span>`:`<span class="ot">${txt(o)}</span>`);
+    b.onclick=()=>{ans[cur]=i;save();render()};box.appendChild(b)});
+  $("prev").disabled=cur===0;
+  $("next").textContent=cur===M.qs.length-1?"مراجعة وإنهاء":"التالي ←";
+  const done=ans.filter(a=>a!==null).length;
+  $("prog").style.width=(done/M.qs.length*100)+"%";
+  M.qs.forEach((_,i)=>{const d=$("nd"+i);if(d)d.className="nav-dot"+(ans[i]!==null?" done":"")+(i===cur?" cur":"")});
+}
+function askFinish(){
+  const left=ans.filter(a=>a===null).length;
+  $("confirmMsg").textContent=left?`لم تُجب عن ${left} سؤالًا. هل تريد إنهاء الاختبار؟ الأسئلة المتروكة تُحسب خاطئة.`:"أجبت عن جميع الأسئلة. هل تريد إنهاء الاختبار وعرض الدرجة؟";
+  $("confirm").hidden=false;$("confirm").scrollIntoView({behavior:"smooth",block:"center"});
+}
+function finish(){
+  clearInterval(tick);const total=secs();clearSave();
+  const N=M.qs.length;let score=0;const per=SECTIONS.map(()=>[0,0]);
+  M.qs.forEach((q,i)=>{per[q.s][1]++;if(ans[i]===q.a){score++;per[q.s][0]++}});
+  const pct=Math.round(score/N*100);
+  $("sc").textContent=score;$("scOf").textContent="من "+N;
+  $("rName").textContent=`الطالب: ${student} · ${M.name}`;
+  $("grade").textContent=pct>=90?"متميز جدًّا":pct>=80?"ممتاز":pct>=70?"جيد جدًّا":pct>=60?"جيد":"يحتاج إلى مزيد من التدريب";
+  $("rMeta").textContent=`النسبة ${pct}% · الوقت المستغرق ${fmt(total)}`;
+  $("secs").innerHTML=per.map((p,i)=>p[1]?`<div class="secrow"><span>${SECTIONS[i]}</span><div class="track"><i style="width:${p[0]/p[1]*100}%"></i></div><em>${p[0]} / ${p[1]}</em></div>`:"").join("");
+  filterWrong=false;$("fAll").classList.add("on");$("fWrong").classList.remove("on");
+  renderReview();show("result");
+  $("arc").style.transition="none";$("arc").setAttribute("stroke-dashoffset","326.7");
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{$("arc").style.transition="stroke-dashoffset 1s ease";$("arc").setAttribute("stroke-dashoffset",326.7*(1-score/N))}));
+}
+function renderReview(){
+  const L=$("rvList");let html="";
+  M.qs.forEach((q,i)=>{
+    const a=ans[i],ok=a===q.a,sk=a===null;if(filterWrong&&ok)return;
+    const figs=q.o.every(isFig);
+    const opts=q.o.map((o,j)=>`<li class="${j===q.a?"c":(j===a?"x":"")}">${isFig(o)?`<span>${KEYS[j]}</span>${o.f}`:`${KEYS[j]}) ${txt(o)}`}</li>`).join("");
+    const pre=q.p?`(نص «${esc(M.passages[q.p-1].title)}») `:"";
+    html+=`<article class="rv${ok?"":sk?" skip":" wrong"}"><div class="rv-h"><span><b>السؤال ${i+1}</b> · ${SECTIONS[q.s]}</span><span class="tag ${ok?"ok":sk?"sk":"bad"}">${ok?"صحيحة":sk?"لم يُجب":"خاطئة"}</span></div>`+
+      `<p class="rv-q">${pre}${esc(q.q)}</p>${q.fig?`<div class="figbox">${q.fig}</div>`:""}<ul class="${figs?"figs":""}">${opts}</ul>`+
+      `<p class="ex"><b>الإجابة الصحيحة: (${KEYS[q.a]})</b> — ${esc(q.e)}</p></article>`;
+  });
+  L.innerHTML=html||'<p class="meta">لا توجد أخطاء. أحسنت!</p>';
+}
+$("go").onclick=()=>{
+  student=$("sname").value.trim();
+  if(chosen<0){$("nameErr").textContent="اختر النموذج أولًا.";return}
+  if(!student){$("nameErr").textContent="اكتب اسمك أولًا ثم ابدأ الاختبار.";$("sname").focus();return}
+  $("nameErr").textContent="";mi=chosen;M=MODELS[mi];ans=new Array(M.qs.length).fill(null);cur=0;elapsed=0;save();begin();
+};
+$("resumeGo").onclick=()=>{const sv=load();if(!sv)return;mi=sv.mi;M=MODELS[mi];student=sv.student;ans=sv.ans;cur=Math.min(sv.cur||0,M.qs.length-1);elapsed=sv.elapsed||0;begin()};
+$("resumeDrop").onclick=()=>{clearSave();$("resume").hidden=true};
+$("sname").addEventListener("keydown",e=>{if(e.key==="Enter")$("go").click()});
+$("prev").onclick=()=>{if(cur>0){cur--;save();render()}};
+$("next").onclick=()=>{if(cur<M.qs.length-1){cur++;save();render()}else askFinish()};
+$("finish").onclick=askFinish;
+$("no").onclick=()=>{$("confirm").hidden=true};
+$("yes").onclick=finish;
+$("again").onclick=()=>{$("sname").value="";buildStart();show("start")};
+$("fAll").onclick=()=>{filterWrong=false;$("fAll").classList.add("on");$("fWrong").classList.remove("on");renderReview()};
+$("fWrong").onclick=()=>{filterWrong=true;$("fWrong").classList.add("on");$("fAll").classList.remove("on");renderReview()};
+buildStart();
+</script>
+
+</body>
+</html>
